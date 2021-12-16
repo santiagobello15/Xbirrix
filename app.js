@@ -107,25 +107,20 @@ for (let i = 0; i < qtyLloladris; i++) {
 }
 
 */
-var birraKey = "BIRRA";
-var birraVariable = "UNA " + birraKey + "<br>" + "PARA CADA OCASIÓN";
-var birraKey = "birra" + 1;
-var birra1 = "BIRRA";
-var birra2 = "BIER";
-var birra3 = "CERVEZA";
-var birra4 = "PINTA";
-var birra5 = "BEER";
+let birraKey = "BIRRA";
+let birraVariable = "UNA " + birraKey + "<br>" + "PARA CADA OCASIÓN";
+
+const words = ["BIRRA", "BIER", "CERVEZA", "PINTA", "BEER", "CERVEJA"];
 
 document.getElementById("tit-birra-id").innerHTML = birraVariable;
 
-cambioBirra = function randomIntFromInterval(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+cambioBirra = function randomNumber() {
+  return Math.floor(Math.random() * words.length);
 };
 
 setInterval(function () {
-  idiomaBirra = cambioBirra(1, 5);
-  console.log(idiomaBirra);
-  var birraKey = window["birra" + idiomaBirra];
+  console.log(cambioBirra());
+  let birraKey = words[cambioBirra()];
   console.log(birraKey);
   document.getElementById("tit-birra-id").innerHTML = birraVariable;
   document.getElementById("tit-birra-id").classList.add("beer-word");
@@ -133,5 +128,3 @@ setInterval(function () {
     birraVariable = "UNA " + birraKey + "<br>" + "PARA CADA OCASIÓN";
   }, 1);
 }, 1500);
-
-//restersrr
