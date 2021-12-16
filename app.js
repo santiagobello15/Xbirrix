@@ -133,3 +133,5 @@ setInterval(function () {
     birraVariable = "UNA " + birraKey + "<br>" + "PARA CADA OCASIÓN";
   }, 1);
 }, 1500);
+
+//rest
