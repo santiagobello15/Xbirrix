@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Rammetto+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Rammetto+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Beer App</title>
+  </head>
+  <nav>
+    <div class="logo-web">
+      <a href="#home"><img class="img-logo" src="/src/logo.png" /></a>
+    </div>
+    <ul class="titles-holder">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#variedades">Variedades</a></li>
+      <li><a href="#resenas">Reseñas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+  <body>
+    <section id="home">
+      <div class="div-img-santi" id="testese">
+        <img src="/src/santi.png" class="img-santi" />
+      </div>
+      <div class="div-img-negro" id="testes">
+        <img src="/src/negro.png" class="img-negro" />
+      </div>
+      <div class="text-p1">
+        <a class="ah-text">¡AHHHHHHHHHHH!</a>
+        <b>NOSOTROS TAMBIÉN AMAMOS</b>
+        <b class="b2">ESE SUSPIRO</b>
+      </div>
+    </section>
+    <section id="variedades">
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+        <div class="btn-img" id="btn-img-prv">
+          <div class="flechas">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          </div>
+        </div>
+        <!-- Full-width images with number and caption text -->
+        <div class="core">
+          <div class="mySlides fade">
+            <img src="/src/roja.png" class="beer-imgs" />
+            <div class="cap-text">ROJA</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="/src/cherry.png" class="beer-imgs" />
+            <div class="cap-text">CHERRY</div>
+          </div>
+
+          <div class="mySlides fade">
+            <img src="/src/rubia.png" class="beer-imgs" />
+            <div class="cap-text">RUBIA</div>
+          </div>
+          <div class="dotdot">
+            <div class="dotdivdot">
+              <spann class="dot" onclick="currentSlide(1)"></spann>
+              <spann class="dot" onclick="currentSlide(2)"></spann>
+              <spann class="dot" onclick="currentSlide(3)"></spann>
+            </div>
+          </div>
+        </div>
+        <div class="btn-img" id="btn-img-nxt">
+          <div class="flechas">
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+        </div>
+        <!-- The dots/circles -->
+      </div>
+      <div class="titbirra">
+        <a class="tit-birra" id="tit-birra-id"></a>
+      </div>
+
+      <br />
+    </section>
+    <section id="resenas"></section>
+    <section id="contacto"></section>
+    <section id="bottom-rect"></section>
+    <script src="app.js"></script>
+  </body>
+</html>
