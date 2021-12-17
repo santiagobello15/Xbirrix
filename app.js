@@ -108,11 +108,11 @@ for (let i = 0; i < qtyLloladris; i++) {
 
 */
 let birraKey = "BIRRA";
-let birraVariable = "UNA " + birraKey + "<br>" + "PARA CADA OCASIÓN";
+let birraVariable = birraKey + "<br>";
 
 const words = ["BIRRA", "BIER", "CERVEZA", "PINTA", "BEER", "CERVEJA"];
 
-document.getElementById("tit-birra-id").innerHTML = birraVariable;
+document.getElementById("tit-birra-variable").innerHTML = birraVariable;
 
 /* cambioBirra = function randomNumber() {
   return Math.floor(Math.random() * words.length);
@@ -129,10 +129,10 @@ setInterval(function () {
   }, 1);
 }, 1500);
  */
+let prueb = "";
 let wordsIndex = 1; //// simil i
 function delayToChangeBeerWord() {
   setTimeout(function () {
-    console.log(words[wordsIndex]);
     wordsIndex++;
     if (wordsIndex < words.length) {
       delayToChangeBeerWord();
@@ -140,10 +140,15 @@ function delayToChangeBeerWord() {
       wordsIndex = 0;
       delayToChangeBeerWord();
     }
-
-    document.getElementById("tit-birra-id").innerHTML = birraVariable;
-    document.getElementById("tit-birra-id").classList.add("beer-word");
-    birraVariable = "UNA " + words[wordsIndex] + "<br>" + "PARA CADA OCASIÓN";
-  }, 1500);
+    document.getElementById("tit-birra-variable").innerHTML = birraVariable;
+    birraVariable = words[wordsIndex] + "<br>";
+    prueb = document.getElementById("tit-birra-variable");
+    setTimeout(function () {
+      prueb.classList.add("beer-word-active");
+      setTimeout(function () {
+        prueb.classList.remove("beer-word-active");
+      }, 1250);
+    }, 1250); ///time to remove class
+  }, 2000); ///time to new i
 }
 delayToChangeBeerWord();

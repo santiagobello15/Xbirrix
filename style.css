@@ -347,7 +347,7 @@ section {
   float: right;
   right: 120px;
   top: -70vh;
-  animation: moveBirraTit 1s;
+  animation: 1s;
 }
 
 @keyframes fadeBirraTit {
@@ -367,13 +367,56 @@ section {
   }
 }
 
-.titbirra a {
-  text-align: center;
-  font-family: "Montserrat", sans-serif;
+.titbirra {
   animation-delay: 1s;
   animation: fadeBirraTit 1.5s;
+}
+
+.titbirra a {
+  font-family: "Montserrat", sans-serif;
+
   font-size: 4.5rem;
   font-style: italic;
+  display: block;
+}
+
+#tit-birra-fixed1 {
+  display: inline;
+}
+#tit-birra-variable {
+  display: inline;
+  position: absolute;
+  left: 186px;
+}
+
+.beer-word-original {
+  animation: downWordOriginal 0.5s;
+}
+
+.beer-word-active {
+  animation: downWordActive 0.5s;
+  opacity: 0;
+}
+
+@keyframes downWordOriginal {
+  0% {
+    top: -15px;
+    opacity: 0;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+@keyframes downWordActive {
+  0% {
+    top: 0px;
+    opacity: 1;
+  }
+  100% {
+    top: 15px;
+    opacity: 0;
+  }
 }
 
 #resenas {
