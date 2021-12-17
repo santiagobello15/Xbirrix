@@ -114,7 +114,7 @@ const words = ["BIRRA", "BIER", "CERVEZA", "PINTA", "BEER", "CERVEJA"];
 
 document.getElementById("tit-birra-id").innerHTML = birraVariable;
 
-cambioBirra = function randomNumber() {
+/* cambioBirra = function randomNumber() {
   return Math.floor(Math.random() * words.length);
 };
 
@@ -128,3 +128,22 @@ setInterval(function () {
     birraVariable = "UNA " + birraKey + "<br>" + "PARA CADA OCASIÓN";
   }, 1);
 }, 1500);
+ */
+let wordsIndex = 1; //// simil i
+function delayToChangeBeerWord() {
+  setTimeout(function () {
+    console.log(words[wordsIndex]);
+    wordsIndex++;
+    if (wordsIndex < words.length) {
+      delayToChangeBeerWord();
+    } else {
+      wordsIndex = 0;
+      delayToChangeBeerWord();
+    }
+
+    document.getElementById("tit-birra-id").innerHTML = birraVariable;
+    document.getElementById("tit-birra-id").classList.add("beer-word");
+    birraVariable = "UNA " + words[wordsIndex] + "<br>" + "PARA CADA OCASIÓN";
+  }, 1500);
+}
+delayToChangeBeerWord();
