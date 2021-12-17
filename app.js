@@ -147,8 +147,8 @@ function delayToChangeBeerWord() {
       prueb.classList.add("beer-word-active");
       setTimeout(function () {
         prueb.classList.remove("beer-word-active");
-      }, 1250);
-    }, 1250); ///time to remove class
+      }, 1000); ///time to remove class
+    }, 1000); ///time to add class
   }, 2000); ///time to new i
 }
 delayToChangeBeerWord();
