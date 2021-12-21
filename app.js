@@ -81,5 +81,4 @@ for (i = 0; i < IDsTitHolder.length; i++) {
       titHolder.classList.remove("tit-holder-li-a");
     }
   });
-  console.log(titHolder);
 }

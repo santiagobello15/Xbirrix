@@ -226,8 +226,8 @@ section {
   width: 600px;
   height: 200px;
   float: right;
-  right: 780px;
-  top: 59vh;
+  right: 790px;
+  top: 60vh;
   animation: 1s;
   animation-delay: 1s;
   animation: fadeBirraTit 1.5s;
@@ -266,7 +266,7 @@ section {
 #tit-birra-variable {
   display: inline;
   position: absolute;
-  left: 186px;
+  left: 150px;
 }
 
 .beer-word-original {
@@ -331,4 +331,48 @@ section {
   background-size: cover;
   top: 50vh;
   left: 50vw;
+}
+
+#book-button {
+  color: white;
+  font-size: 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  font-style: italic;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.button-cointainer {
+  background-color: #de8432;
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  border: 0px;
+  left: 43vw;
+  position: absolute;
+  top: 19vh;
+  text-align: center;
+  line-height: 50px;
+}
+
+.subt-container {
+  position: absolute;
+  left: 28vw;
+  top: 8vh;
+}
+
+.subt-reservas {
+  color: white;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.company-name-a {
+  font-family: "Permanent Marker", cursive;
+  font-size: 2rem;
+  color: #de8432;
 }
