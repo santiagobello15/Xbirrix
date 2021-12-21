@@ -4,19 +4,57 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   list-style: none;
+  /* overflow: hidden; */
 }
 
 nav {
   height: 10vh;
   width: 100vw;
   display: flex;
-  box-shadow: 0px 4px 15px -3px rgb(0 0 0 / 10%);
   position: fixed;
-  z-index: 9999;
+  z-index: 999999;
+  background-color: rgba(74, 45, 18, 0.479);
+}
+.navbar-above-px {
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  position: fixed;
+  z-index: 999999;
+  background-color: rgba(74, 45, 18, 0.479);
+  animation: fadeDownNavBar 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeDownNavBar {
+  0% {
+    top: -80px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
 .navbar-below-px {
-  background-color: white;
+  animation: fadeUpNavBar 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeUpNavBar {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -80px;
+  }
+}
+
+.titles-holder-li-a-below-px {
+  color: rgb(222, 132, 50);
+  background-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .titles-holder {
@@ -30,23 +68,44 @@ nav {
   right: 100px;
   position: absolute;
 }
-.titles-holder li a {
-  color: black;
+.tit-holder-li-a {
+  color: rgb(222, 132, 50);
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
+  border-radius: 6px;
+  padding: 5px;
 }
+
 section {
   width: 100%;
   height: 100vh;
   position: absolute;
 }
 
+#cover-vid {
+  top: 0vh;
+}
+
 #home {
   top: 100vh;
   font-weight: 400;
   z-index: 1;
-  background-color: rgb(222, 132, 50);
+  background-color: #de8432;
+}
+
+#screen-title {
+  color: rgb(222, 132, 50);
+  font-size: 10.5rem;
+  font-weight: bold;
+  position: absolute;
+  z-index: 999;
+  top: 35vh;
+  left: 30vw;
+  font-family: "Permanent Marker", cursive;
+  background-color: rgba(74, 45, 18, 0.479);
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .img-beer-1,
@@ -60,7 +119,7 @@ section {
   position: absolute;
   top: 21vh;
   left: 5vw;
-  width: 22vw;
+  width: 19vw;
 }
 .div-beer-2 {
   left: 28vw;
@@ -108,7 +167,7 @@ section {
 .text-p1 b {
   font-size: 2rem;
   color: white;
-  text-shadow: 2px 2px black;
+  text-shadow: 2px 1px black;
 }
 .b2 {
   font-size: 2rem;
@@ -160,71 +219,15 @@ section {
 #variedades {
   top: 200vh;
   position: absolute;
+  background-color: #895e3b;
 }
 
-* {
-  box-sizing: border-box;
-}
-.cap-text {
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: center;
-  height: 9vh;
-  line-height: 9vh;
-}
-
-.beer-imgs {
-  width: 100%;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active,
-.dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 2s;
-}
-
-@-webkit-keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .titbirra {
   width: 600px;
   height: 200px;
   float: right;
   right: 780px;
-  top: 40vh;
+  top: 59vh;
   animation: 1s;
   animation-delay: 1s;
   animation: fadeBirraTit 1.5s;
@@ -250,9 +253,11 @@ section {
 
 .titbirra a {
   font-family: "Montserrat", sans-serif;
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   font-style: italic;
   display: block;
+  color: white;
+  text-shadow: 2px 1px black;
 }
 
 #tit-birra-fixed1 {
@@ -294,10 +299,6 @@ section {
   }
 }
 
-#resenas {
-  top: 0vh;
-}
-
 #contacto {
   top: 400vh;
 }
@@ -306,28 +307,28 @@ section {
   height: 60vh;
   background-color: rgb(61, 61, 61);
 }
-.custom-shape-divider-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-top svg {
-  position: relative;
-  display: block;
-  width: calc(187% + 1.3px);
-  height: 300px;
-}
-
-.custom-shape-divider-top .shape-fill {
-  fill: rgb(222, 132, 50);
-}
 
 .video-screen {
   object-fit: cover;
   width: 100%;
   height: 100vh;
+}
+
+.cover-picture-beers {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  background-image: url(/src/beers-cover.jpg);
+  height: 50vh;
+  background-size: cover;
+}
+.second-picture-beers {
+  position: absolute;
+  z-index: 9999;
+  width: 50%;
+  background-image: url(/src/second-beer-friends.jpg);
+  height: 50vh;
+  background-size: cover;
+  top: 50vh;
+  left: 50vw;
 }

@@ -58,11 +58,28 @@ function delayToChangeBeerWord() {
 delayToChangeBeerWord();
 
 let navbar = document.getElementById("unique-nav");
-
 window.addEventListener("scroll", (e) => {
-  if (this.scrollY < 400) {
+  if (this.scrollY < 200) {
     navbar.classList.remove("navbar-below-px");
+    navbar.classList.add("navbar-above-px");
   } else {
     navbar.classList.add("navbar-below-px");
+    navbar.classList.remove("navbar-above-px");
   }
 });
+
+const IDsTitHolder = ["Home", "Variedades", "Reseñas", "Contacto"];
+
+for (i = 0; i < IDsTitHolder.length; i++) {
+  let titHolder = document.getElementById("holderID" + i);
+  window.addEventListener("scroll", (e) => {
+    if (this.scrollY < 200) {
+      titHolder.classList.remove("titles-holder-li-a-below-px");
+      titHolder.classList.add("tit-holder-li-a");
+    } else {
+      titHolder.classList.add("titles-holder-li-a-below-px");
+      titHolder.classList.remove("tit-holder-li-a");
+    }
+  });
+  console.log(titHolder);
+}
