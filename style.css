@@ -331,7 +331,7 @@ section {
   z-index: 9999;
   width: 100%;
   background-image: url(/src/beers-cover.jpg);
-  height: 50vh;
+  height: 400px;
   background-size: cover;
 }
 .second-picture-beers {
@@ -339,9 +339,9 @@ section {
   z-index: 9999;
   width: 50%;
   background-image: url(/src/second-beer-friends.jpg);
-  height: 50vh;
+  height: 400px;
   background-size: cover;
-  top: 50vh;
+  top: 400px;
   left: 50vw;
 }
 
@@ -352,8 +352,8 @@ section {
   text-decoration: none;
   font-style: italic;
   position: relative;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 38px;
+  padding-right: 38px;
   padding-top: 16px;
   padding-bottom: 16px;
 }
@@ -365,7 +365,7 @@ section {
   border-radius: 15px;
   border: 0px;
   position: absolute;
-  top: 19vh;
+  top: 200px;
   text-align: center;
   line-height: 50px;
   left: 50%;
@@ -375,13 +375,13 @@ section {
 .subt-container {
   position: absolute;
   left: 28vw;
-  top: 8vh;
+  top: 100px;
 }
 
 .subt-reservas {
   color: white;
   font-size: 2rem;
-  font-style: italic;
+  font-weight: bold;
 }
 
 .company-name-a {
