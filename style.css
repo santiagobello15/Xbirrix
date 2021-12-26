@@ -171,7 +171,7 @@ section {
 
 .text-p1 {
   position: absolute;
-  top: 25vh;
+  top: 130px;
   left: 58vw;
 }
 
@@ -232,6 +232,62 @@ section {
     top: 0px;
     opacity: 1;
   }
+}
+
+.table-container {
+  position: absolute;
+  top: 350px;
+  left: 58vw;
+  width: 500px;
+  height: 400px;
+}
+
+.table-item {
+  width: 235px;
+  height: 190px;
+  position: absolute;
+  border-radius: 3px;
+}
+
+#table-item-1 {
+  top: 0px;
+  left: 10px;
+}
+#table-item-2 {
+  top: 0px;
+  left: 255px;
+}
+#table-item-3 {
+  top: 210px;
+  left: 10px;
+}
+#table-item-4 {
+  top: 210px;
+  left: 255px;
+}
+
+.icons-4-table {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 25px;
+  top: 15px;
+}
+
+.table-titles {
+  font-size: 1.3rem;
+  position: absolute;
+  top: 60px;
+  color: white;
+  text-shadow: 1px 2px black;
+  font-style: italic;
+}
+
+.table-text {
+  color: white;
+  position: absolute;
+  text-shadow: 0px 1px black;
+  top: 100px;
 }
 
 #variedades {
