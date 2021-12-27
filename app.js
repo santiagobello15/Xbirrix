@@ -14,7 +14,18 @@ for (let i = 0; i < letras.length; i++) {
 let birraKey = "BIRRA";
 let birraVariable = birraKey + "<br>";
 
-const words = ["BIRRA", "BIER", "CERVEZA", "PINTA", "BEER", "CERVEJA"];
+const words = [
+  "BIRRA",
+  "BIER",
+  "CERVEZA",
+  "PIVO",
+  "BEER",
+  "CERVEJA",
+  "øL",
+  "PIWO",
+  "пиво",
+  "BIÈRE",
+];
 
 document.getElementById("tit-birra-variable").innerHTML = birraVariable;
 
