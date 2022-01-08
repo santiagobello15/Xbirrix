@@ -93,3 +93,17 @@ for (i = 0; i < IDsTitHolder.length; i++) {
     }
   });
 }
+
+const bookingButton = document.getElementById("button-cointainer-id");
+bookingButton.addEventListener("click", function () {
+  let newBookingButtonAlert = document.createElement("div");
+  newBookingButtonAlert.innerHTML =
+    '<p class="p-button">' + "En Construcción" + "</p>";
+  document
+    .getElementById("button-cointainer-id")
+    .appendChild(newBookingButtonAlert);
+  newBookingButtonAlert.classList.add("book-button-alert");
+  setTimeout(function () {
+    newBookingButtonAlert.remove("book-button-alert");
+  }, 3000);
+});
