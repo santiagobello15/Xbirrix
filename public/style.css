@@ -133,7 +133,7 @@ section {
 .div-beer-1,
 .div-beer-2 {
   position: absolute;
-  top: 21vh;
+  top: 14vh;
   left: 50px;
   width: 200px;
 }
@@ -176,7 +176,7 @@ section {
 
 .text-p1 {
   position: absolute;
-  top: 130px;
+  top: 11vh;
   left: 58vw;
 }
 
@@ -241,7 +241,7 @@ section {
 
 .table-container {
   position: absolute;
-  top: 350px;
+  top: 40vh;
   left: 58vw;
   width: 550px;
   height: 400px;

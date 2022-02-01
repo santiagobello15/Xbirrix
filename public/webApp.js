@@ -107,3 +107,23 @@ bookingButton.addEventListener("click", function () {
     newBookingButtonAlert.remove("book-button-alert");
   }, 3000);
 });
+
+function Reviews(id, userName, userComment) {
+  this.id = id;
+  this.userName = userName;
+  this.userComment = userComment;
+  this.picture = "picture-" + this.id;
+}
+
+console.log(reviews1);
+console.log(reviews2);
+console.log(reviews3);
+
+reviews1 = new Reviews(
+  1,
+  "Santiago",
+  "El servicio es siempre 10 puntos. Voy a continuar pidiendo en la plataforma"
+);
+
+reviews2 = new Reviews(2, "Martín", "El servicio es muy bueno.");
+reviews3 = new Reviews(3, "Josefina", "No me gustó mucho");
