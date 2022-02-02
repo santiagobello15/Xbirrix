@@ -15,6 +15,7 @@ html {
   --mainColor: #de8432;
   --mainColorTransp: rgba(74, 45, 18, 0.479);
   --secondColor: #895e3b;
+  --thirdColor: #ffe9ce;
 }
 
 nav {
@@ -491,6 +492,7 @@ section {
 
 #contacto {
   top: 2400px;
+  background-image: url(/src/media/patternpad.svg);
 }
 #footer-rect {
   top: 3200px;

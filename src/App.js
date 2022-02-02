@@ -1,20 +1,39 @@
 import React from "react";
 import "./App.css";
+/* import FunReviews from "./ReviewsData.js"; intenté crear class y objects afuera, en otro archivo e importar pero no pude. no me tomaba los objects. PE reviews1*/
 
 function App() {
+  class Reviews {
+    constructor(userId, userName, userComment) {
+      this.userId = userId;
+      this.userName = userName;
+      this.userComment = userComment;
+      this.userPicture = "picture-" + this.userId;
+    }
+  }
+
+  let reviews1 = new Reviews(1, "German", "No esta buena la app");
+  let reviews2 = new Reviews(2, "Esteban", "Muy buena la pagina");
+
   return (
     <div className="reviews-container1">
+      <div className="reviews-picture picture-backgr"></div>
       <div className="reviews-picture">
         <img
           className="reviews-image"
-          src={"/src/media/" + reviews1.picture + ".jpg"}
+          src={"/src/media/" + reviews1.userPicture + ".jpg"}
         ></img>
       </div>
+
       <div className="arrow arrow-back-container">
-        <a className="arrow-a">{"<"}</a>
+        <a href="a" className="arrow-a">
+          {"<"}
+        </a>
       </div>
       <div className="arrow arrow-forward-container">
-        <a className="arrow-a">{">"}</a>
+        <a href="a" className="arrow-a">
+          {">"}
+        </a>
       </div>
       <div className="reviews-title-container">
         <a className="reviews-title-a">{reviews1.userName}</a>
@@ -25,25 +44,5 @@ function App() {
     </div>
   );
 }
-
-function Reviews(id, userName, userComment) {
-  this.id = id;
-  this.userName = userName;
-  this.userComment = userComment;
-  this.picture = "picture-" + this.id;
-}
-
-let reviews1 = new Reviews(
-  1,
-  "Santiago",
-  "El servicio es siempre 10 puntos. Voy a continuar pidiendo en la plataforma"
-);
-
-let reviews2 = new Reviews(2, "Martín", "El servicio es muy bueno.");
-let reviews3 = new Reviews(3, "Josefina", "No me gustó mucho");
-
-console.log(reviews1);
-console.log(reviews2);
-console.log(reviews3);
 
 export default App;
