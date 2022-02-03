@@ -12,7 +12,7 @@ html {
   overflow-y: overlay; /* scroll bar on top of content */
 }
 :root {
-  --mainColor: #de8432;
+  --mainColor: #dd8431;
   --mainColorTransp: rgba(74, 45, 18, 0.479);
   --secondColor: #895e3b;
   --thirdColor: #ffe9ce;
@@ -494,6 +494,32 @@ section {
   top: 2400px;
   background-image: url(/src/media/patternpad.svg);
 }
+
+.reviews-title {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 100px;
+  width: 734px;
+}
+.reviews-title h1 {
+  text-shadow: 2px 2px white;
+  font-size: 3rem;
+  z-index: 999;
+  position: absolute;
+  font-style: italic;
+  color: black;
+}
+
+.reviews-solid-underline {
+  width: 100%;
+  height: 16px;
+  position: absolute;
+  background-color: var(--mainColor);
+  top: 39px;
+  z-index: 9;
+}
+
 #footer-rect {
   top: 3200px;
   background-color: rgb(61, 61, 61);

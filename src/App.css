@@ -10,7 +10,7 @@
   width: 70%;
   position: absolute;
   background-color: rgb(180, 180, 180);
-  top: 160px;
+  top: 290px;
   left: 15%;
 }
 
@@ -46,9 +46,11 @@
 
 .arrow-back-container {
   left: -25px;
+  border-radius: 50%;
 }
 .arrow-forward-container {
   right: -25px;
+  border-radius: 50%;
 }
 
 .arrow-a {
