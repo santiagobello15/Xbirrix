@@ -14,23 +14,29 @@ function App() {
   }
 
   let reviews0 = new Reviews(0, "German Gomez", 3, "No está buena la app");
-  let reviews1 = new Reviews(1, "Carolina Quito", 4, "Muy buena la página");
+  let reviews1 = new Reviews(1, "Carolina Quito", 5, "Muy buena la página");
   let reviews2 = new Reviews(
     2,
     "Marta Morales",
-    5,
+    4,
     "No tengo más que buenas palabras para la empresa. Llega todo siempre en buen estado, y rápido. Los precios también son buenos"
   );
   let reviews3 = new Reviews(
     3,
     "Jose Profeta",
+    2,
+    "El sitio está muy bueno, pero los precios son elevados. Tienen gran variedad de bebidas"
+  );
+  let reviews4 = new Reviews(
     4,
-    "El sitio está muy bueno, pero los precios son elevados. Tienen gran variedad de bebidas."
+    "Ernst Young",
+    1,
+    "No me permite comprar por el sitio, tuve que llamar por teléfono."
   );
 
   const [current, setCurrent] = useState(0);
 
-  let reviewsArray = [reviews0, reviews1, reviews2, reviews3];
+  let reviewsArray = [reviews0, reviews1, reviews2, reviews3, reviews4];
   let reviewsFindId = reviewsArray.find((Reviews) => Reviews.userId == current);
 
   const prevSlide = () => {
@@ -56,10 +62,9 @@ function App() {
   let starsArray = [star1, star2, star3, star4, star5];
 
   const reviewsCount = () => {
-    for (let i = 0; i < starsArray.length - 1; i++) {
-      if (reviewsFindId.userScore - 1 > i) {
-        starsArray[i] = "star-active";
-        console.log(star1);
+    for (let i = 0; i < starsArray.length; i++) {
+      if (reviewsFindId.userScore > i) {
+        starsArray[i].imageType = "star-active";
       }
     }
   };
@@ -93,20 +98,32 @@ function App() {
           <div className="reviews-star-div">
             <img
               className="star-icon"
-              src={"/src/media/" + "sd" + ".svg"}
+              src={"/src/media/" + star1.imageType + ".svg"}
             ></img>
           </div>
           <div className="reviews-star-div">
-            <img className="star-icon" src={"/src/media/star.svg"}></img>
+            <img
+              className="star-icon"
+              src={"/src/media/" + star2.imageType + ".svg"}
+            ></img>
           </div>
           <div className="reviews-star-div">
-            <img className="star-icon" src={"/src/media/star.svg"}></img>
+            <img
+              className="star-icon"
+              src={"/src/media/" + star3.imageType + ".svg"}
+            ></img>
           </div>
           <div className="reviews-star-div">
-            <img className="star-icon" src={"/src/media/star.svg"}></img>
+            <img
+              className="star-icon"
+              src={"/src/media/" + star4.imageType + ".svg"}
+            ></img>
           </div>
           <div className="reviews-star-div">
-            <img className="star-icon" src={"/src/media/star.svg"}></img>
+            <img
+              className="star-icon"
+              src={"/src/media/" + star5.imageType + ".svg"}
+            ></img>
           </div>
         </div>
       </div>
