@@ -4,24 +4,27 @@ import "./App.css";
 
 function App() {
   class Reviews {
-    constructor(userId, userName, userComment) {
+    constructor(userId, userName, userScore, userComment) {
       this.userId = userId;
       this.userName = userName;
+      this.userScore = userScore;
       this.userComment = userComment;
       this.userPicture = "picture-" + this.userId;
     }
   }
 
-  let reviews0 = new Reviews(0, "German Gomez", "No esta buena la app");
-  let reviews1 = new Reviews(1, "Carolina Quito", "Muy buena la pagina");
+  let reviews0 = new Reviews(0, "German Gomez", 3, "No está buena la app");
+  let reviews1 = new Reviews(1, "Carolina Quito", 4, "Muy buena la página");
   let reviews2 = new Reviews(
     2,
     "Marta Morales",
+    5,
     "No tengo más que buenas palabras para la empresa. Llega todo siempre en buen estado, y rápido. Los precios también son buenos"
   );
   let reviews3 = new Reviews(
     3,
     "Jose Profeta",
+    4,
     "El sitio está muy bueno, pero los precios son elevados. Tienen gran variedad de bebidas."
   );
 
@@ -45,6 +48,23 @@ function App() {
     }
   };
 
+  let star1 = { imageType: "star" };
+  let star2 = { imageType: "star" };
+  let star3 = { imageType: "star" };
+  let star4 = { imageType: "star" };
+  let star5 = { imageType: "star" };
+  let starsArray = [star1, star2, star3, star4, star5];
+
+  const reviewsCount = () => {
+    for (let i = 0; i < starsArray.length - 1; i++) {
+      if (reviewsFindId.userScore - 1 > i) {
+        starsArray[i] = "star-active";
+        console.log(star1);
+      }
+    }
+  };
+  reviewsCount();
+
   return (
     <div className="reviews-container1">
       <div className="reviews-picture picture-backgr"></div>
@@ -54,7 +74,6 @@ function App() {
           src={"/src/media/" + reviewsFindId.userPicture + ".jpg"}
         ></img>
       </div>
-
       <div className="arrow arrow-back-container">
         <a className="arrow-a" onClick={prevSlide}>
           {"<"}
@@ -70,6 +89,26 @@ function App() {
       </div>
       <div className="reviews-body-container">
         <a className="reviews-body-a">{reviewsFindId.userComment}</a>
+        <div className="reviews-stars-container">
+          <div className="reviews-star-div">
+            <img
+              className="star-icon"
+              src={"/src/media/" + "sd" + ".svg"}
+            ></img>
+          </div>
+          <div className="reviews-star-div">
+            <img className="star-icon" src={"/src/media/star.svg"}></img>
+          </div>
+          <div className="reviews-star-div">
+            <img className="star-icon" src={"/src/media/star.svg"}></img>
+          </div>
+          <div className="reviews-star-div">
+            <img className="star-icon" src={"/src/media/star.svg"}></img>
+          </div>
+          <div className="reviews-star-div">
+            <img className="star-icon" src={"/src/media/star.svg"}></img>
+          </div>
+        </div>
       </div>
     </div>
   );

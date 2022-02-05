@@ -105,3 +105,22 @@
   width: 80%;
   text-align: center;
 }
+
+.reviews-stars-container {
+  position: absolute;
+  width: 150px;
+  bottom: 10px;
+  right: 10px;
+  height: 40px;
+}
+
+.reviews-star-div {
+  width: 20%;
+  display: inline-block;
+  top: 10px;
+  transform: translateY(4px);
+}
+
+.star-icon {
+  width: 100%;
+}
