@@ -16,6 +16,7 @@ function App() {
     } else {
       setCurrent(current - 1);
     }
+    resetStar();
   };
   const nextSlide = () => {
     if (current == Object.keys(reviewsArray).length - 1) {
@@ -23,7 +24,15 @@ function App() {
     } else {
       setCurrent(current + 1);
     }
+    resetStar();
   };
+
+  const resetStar = () => {
+    for (let i = 0; i < starsArray.length; i++) {
+      starsArray[i].imageType = "star";
+    }
+  };
+
   const reviewsCount = () => {
     for (let i = 0; i < starsArray.length; i++) {
       if (reviewsFindId.userScore > i) {

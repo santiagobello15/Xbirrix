@@ -26,9 +26,22 @@ let reviews4 = new Reviews(
   4,
   "Ernst Young",
   1,
-  "No me permite comprar por el sitio, tuve que llamar por teléfono."
+  "No me permite comprar por el sitio, tuve que llamar por teléfono"
 );
-export let reviewsArray = [reviews0, reviews1, reviews2, reviews3, reviews4];
+let reviews5 = new Reviews(
+  5,
+  "Ramiro Stofenmacher",
+  5,
+  "Los amigos de xBirrix siempre cumplen, me entregaron siempre los productos de acuerdo a lo acordado"
+);
+export let reviewsArray = [
+  reviews0,
+  reviews1,
+  reviews2,
+  reviews3,
+  reviews4,
+  reviews5,
+];
 
 let star1 = { imageType: "star" };
 let star2 = { imageType: "star" };
