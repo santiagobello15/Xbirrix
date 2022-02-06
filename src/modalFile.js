@@ -1,20 +1,11 @@
-import React, { useState } from "react";
 import "./App.css";
 
-function ModalPack() {
-  const [show, setShow] = useState(false);
-
-  const buttonShow = () => {
-    setShow(true);
-  };
-  const buttonHide = () => {
-    setShow(false);
-  };
+function ModalPack({ closeModal }) {
   return (
     <>
-      <button className="reviews-input-btn" show={show} onHide={buttonHide}>
-        <a>DEJÁ TU OPINIÓN</a>
-      </button>
+      <h1>MODALJEJE</h1>
+      <button onClick={() => closeModal(false)}>CANCEL</button>{" "}
+      {/* como funca es esto? */}
     </>
   );
 }

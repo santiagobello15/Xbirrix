@@ -6,8 +6,15 @@ import ModalPack from "./modalFile.js";
 
 function App() {
   const [current, setCurrent] = useState(0);
+  const [show, setShow] = useState(false);
 
   let reviewsFindId = reviewsArray.find((Reviews) => Reviews.userId == current);
+
+  function conditRenderModal() {
+    if (show == true) {
+      return <ModalPack closeModal={setShow} />;
+    }
+  }
 
   const prevSlide = () => {
     if (current == 0) {
@@ -100,7 +107,15 @@ function App() {
           </div>
         </div>
       </div>
-      <ModalPack />
+      <button
+        className="reviews-input-btn"
+        onClick={() => {
+          setShow(true);
+        }}
+      >
+        <a>DEJÁ TU OPINIÓN</a>
+      </button>
+      {conditRenderModal()}
     </div>
   );
 }
