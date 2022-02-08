@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { reviewsArray } from "./dataBase.js";
 import { starsArray } from "./dataBase.js";
-import ModalPack from "./modalFile.js";
+import ModalPack from "./modalComponent/modalFile.js";
 
 function App() {
   const [current, setCurrent] = useState(0);
@@ -15,6 +15,10 @@ function App() {
       return <ModalPack closeModal={setShow} />;
     }
   }
+
+  const showModalFunction = () => {
+    setShow(true);
+  };
 
   const prevSlide = () => {
     if (current == 0) {
@@ -107,12 +111,7 @@ function App() {
           </div>
         </div>
       </div>
-      <button
-        className="reviews-input-btn"
-        onClick={() => {
-          setShow(true);
-        }}
-      >
+      <button className="reviews-input-btn" onClick={showModalFunction}>
         <a>DEJÁ TU OPINIÓN</a>
       </button>
       {conditRenderModal()}
