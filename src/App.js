@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 import { reviewsArray } from "./dataBase.js";
-import { starsArray } from "./dataBase.js";
-import ModalPack from "./modalComponent/modalFile.js";
+import ModalPack from "./components/ModalPack.js";
 
 function App() {
   const [current, setCurrent] = useState(0);
   const [show, setShow] = useState(false);
+  const [reviews, setReviews] = useState(reviewsArray);
 
   let reviewsFindId = reviewsArray.find((Reviews) => Reviews.userId == current);
 
@@ -22,35 +22,18 @@ function App() {
 
   const prevSlide = () => {
     if (current == 0) {
-      setCurrent(Object.keys(reviewsArray).length - 1);
+      setCurrent(Object.keys(reviews).length - 1);
     } else {
       setCurrent(current - 1);
     }
-    resetStar();
   };
   const nextSlide = () => {
-    if (current == Object.keys(reviewsArray).length - 1) {
+    if (current == Object.keys(reviews).length - 1) {
       setCurrent(0);
     } else {
       setCurrent(current + 1);
     }
-    resetStar();
   };
-
-  const resetStar = () => {
-    for (let i = 0; i < starsArray.length; i++) {
-      starsArray[i].imageType = "star";
-    }
-  };
-
-  const reviewsCount = () => {
-    for (let i = 0; i < starsArray.length; i++) {
-      if (reviewsFindId.userScore > i) {
-        starsArray[i].imageType = "star-active";
-      }
-    }
-  };
-  reviewsCount();
 
   return (
     <div>
@@ -81,31 +64,51 @@ function App() {
             <div className="reviews-star-div">
               <img
                 className="star-icon"
-                src={"/src/media/" + starsArray[0].imageType + ".svg"}
+                src={
+                  "/src/media/" +
+                  (reviews[current].userScore >= 1 ? "star-active" : "star") +
+                  ".svg"
+                }
               ></img>
             </div>
             <div className="reviews-star-div">
               <img
                 className="star-icon"
-                src={"/src/media/" + starsArray[1].imageType + ".svg"}
+                src={
+                  "/src/media/" +
+                  (reviews[current].userScore >= 2 ? "star-active" : "star") +
+                  ".svg"
+                }
               ></img>
             </div>
             <div className="reviews-star-div">
               <img
                 className="star-icon"
-                src={"/src/media/" + starsArray[2].imageType + ".svg"}
+                src={
+                  "/src/media/" +
+                  (reviews[current].userScore >= 3 ? "star-active" : "star") +
+                  ".svg"
+                }
               ></img>
             </div>
             <div className="reviews-star-div">
               <img
                 className="star-icon"
-                src={"/src/media/" + starsArray[3].imageType + ".svg"}
+                src={
+                  "/src/media/" +
+                  (reviews[current].userScore >= 4 ? "star-active" : "star") +
+                  ".svg"
+                }
               ></img>
             </div>
             <div className="reviews-star-div">
               <img
                 className="star-icon"
-                src={"/src/media/" + starsArray[4].imageType + ".svg"}
+                src={
+                  "/src/media/" +
+                  (reviews[current].userScore >= 5 ? "star-active" : "star") +
+                  ".svg"
+                }
               ></img>
             </div>
           </div>

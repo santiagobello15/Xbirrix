@@ -42,10 +42,3 @@ export let reviewsArray = [
   reviews4,
   reviews5,
 ];
-
-let star1 = { imageType: "star" };
-let star2 = { imageType: "star" };
-let star3 = { imageType: "star" };
-let star4 = { imageType: "star" };
-let star5 = { imageType: "star" };
-export let starsArray = [star1, star2, star3, star4, star5];
