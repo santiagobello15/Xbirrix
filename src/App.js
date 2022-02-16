@@ -8,8 +8,6 @@ function App() {
   const [show, setShow] = useState(false);
   const [reviews, setReviews] = useState(reviewsArray);
 
-  let reviewsFindId = reviewsArray.find((Reviews) => Reviews.userId == current);
-
   function conditRenderModal() {
     if (show == true) {
       return <ModalPack closeModal={setShow} />;
@@ -42,7 +40,7 @@ function App() {
         <div className="reviews-picture">
           <img
             className="reviews-image"
-            src={"/src/media/" + reviewsFindId.userPicture + ".jpg"}
+            src={"/src/media/picture-" + current + ".jpg"}
           ></img>
         </div>
         <div className="arrow arrow-back-container">
@@ -56,10 +54,10 @@ function App() {
           </a>
         </div>
         <div className="reviews-title-container">
-          <a className="reviews-title-a">{reviewsFindId.userName}</a>
+          <a className="reviews-title-a">{reviews[current].userName}</a>
         </div>
         <div className="reviews-body-container">
-          <a className="reviews-body-a">{reviewsFindId.userComment}</a>
+          <a className="reviews-body-a">{reviews[current].userComment}</a>
           <div className="reviews-stars-container">
             <div className="reviews-star-div">
               <img
