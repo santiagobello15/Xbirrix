@@ -6,11 +6,11 @@ import ModalPack from "./components/ModalPack.js";
 function App() {
   const [current, setCurrent] = useState(0);
   const [show, setShow] = useState(false);
-  const [reviews, setReviews] = useState(reviewsArray);
+  const [reviews, setReview] = useState(reviewsArray);
 
   function conditRenderModal() {
     if (show == true) {
-      return <ModalPack closeModal={setShow} />;
+      return <ModalPack closeModal={setShow} setReview={setReview} />;
     }
   }
 
@@ -31,6 +31,10 @@ function App() {
     } else {
       setCurrent(current + 1);
     }
+  };
+
+  const jeje = () => {
+    console.log(reviews);
   };
 
   return (
@@ -115,6 +119,7 @@ function App() {
       <button className="reviews-input-btn" onClick={showModalFunction}>
         <a>DEJÁ TU OPINIÓN</a>
       </button>
+      <button onClick={jeje}></button>
       {conditRenderModal()}
     </div>
   );

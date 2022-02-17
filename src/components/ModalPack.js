@@ -1,8 +1,10 @@
 import "../App.css";
 import "./modalStyle.css";
 import React, { useState } from "react";
+import { reviewsArray } from "../dataBase.js";
+import { Reviews } from "../dataBase.js";
 
-function ModalPack({ closeModal }) {
+function ModalPack({ closeModal, setReview }) {
   const closeModalFunction = () => {
     closeModal(false);
   };
@@ -10,7 +12,13 @@ function ModalPack({ closeModal }) {
   const [userName, setUserName] = useState("John Doe");
   const [userScore, setUserScore] = useState(5);
   const [userComment, setUserComment] = useState("Me gustó el sitio");
-  let testArray = [userName, userScore, userComment];
+
+  const addedReview = () => {
+    const reviewsCopy = Array.from(reviewsArray);
+    const addedReviewObject = new Reviews(userName, userScore, userComment);
+    reviewsCopy.push(addedReviewObject);
+    setReview(reviewsCopy);
+  };
 
   return (
     <div className="overlay-modal">
@@ -61,12 +69,7 @@ function ModalPack({ closeModal }) {
         <button className="close-button" onClick={closeModalFunction}>
           X
         </button>
-        <button
-          onClick={() => {
-            console.log(testArray);
-          }}
-          className="confirm-button"
-        >
+        <button onClick={addedReview} className="confirm-button">
           Confirmar
         </button>
       </div>
