@@ -97,8 +97,9 @@
   position: absolute;
   left: 5%;
   color: black;
-  border-radius: 2px;
-  border-width: 2px;
+  border-radius: 5px;
+  border-width: 0px;
+  box-shadow: 2px 2px black;
 }
 
 .second-div-input {
@@ -110,7 +111,7 @@
 .third-div-input {
   height: 50%;
   width: 90%;
-  font-size: 1rem;
+  font-size: 0.9rem;
   top: 35%;
 }
 .fourth-div-input {
@@ -132,4 +133,9 @@
   left: 50%;
   transform: translate(-50%, 0%);
   bottom: 16px;
+}
+
+::placeholder {
+  font-size: 0.7rem;
+  padding-left: 5px;
 }

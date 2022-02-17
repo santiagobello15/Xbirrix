@@ -10,7 +10,9 @@ function App() {
 
   function conditRenderModal() {
     if (show == true) {
-      return <ModalPack closeModal={setShow} setReview={setReview} />;
+      return (
+        <ModalPack closeModal={setShow} setReview={setReview} />
+      ); /* as I have passed functions from child to parent, I needed to include them here as props */
     }
   }
 

@@ -14,10 +14,10 @@ function ModalPack({ closeModal, setReview }) {
   const [userComment, setUserComment] = useState("Me gustó el sitio");
 
   const addedReview = () => {
-    const reviewsCopy = Array.from(reviewsArray);
     const addedReviewObject = new Reviews(userName, userScore, userComment);
-    reviewsCopy.push(addedReviewObject);
-    setReview(reviewsCopy);
+    reviewsArray.push(addedReviewObject);
+    setReview(reviewsArray);
+    closeModal(false);
   };
 
   return (
@@ -42,17 +42,6 @@ function ModalPack({ closeModal, setReview }) {
             }}
           ></input>
         </div>
-        <div className="modal-container-container third-div">
-          <p className="container-p-input">¿Qué opinás de nosotros?</p>
-          <input
-            type="text"
-            className="container-input third-div-input"
-            placeholder="Redactá tu opinión"
-            onChange={(evt) => {
-              setUserComment(evt.target.value);
-            }}
-          ></input>
-        </div>
         <div className="modal-container-container fourth-div">
           <p className="container-p-input container-p-picture-fourth-div">
             Dejá tu putaje
@@ -66,6 +55,18 @@ function ModalPack({ closeModal, setReview }) {
             }}
           ></input>
         </div>
+        <div className="modal-container-container third-div">
+          <p className="container-p-input">¿Qué opinás de nosotros?</p>
+          <input
+            type="text"
+            className="container-input third-div-input"
+            placeholder="¡Dejanos tu opinión! ¿Qué te gustó? ¿Qué debemos mejorar?"
+            onChange={(evt) => {
+              setUserComment(evt.target.value);
+            }}
+          ></input>
+        </div>
+
         <button className="close-button" onClick={closeModalFunction}>
           X
         </button>
