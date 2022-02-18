@@ -35,10 +35,6 @@ function App() {
     }
   };
 
-  const jeje = () => {
-    console.log(reviews);
-  };
-
   return (
     <div>
       <div className="reviews-container1">
@@ -121,7 +117,6 @@ function App() {
       <button className="reviews-input-btn" onClick={showModalFunction}>
         <a>DEJÁ TU OPINIÓN</a>
       </button>
-      <button onClick={jeje}></button>
       {conditRenderModal()}
     </div>
   );

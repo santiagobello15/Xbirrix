@@ -6,6 +6,9 @@ const pool = createPool({
   database: "xbirrixdatabase",
 });
 
-pool.query("select * from reviews_table", (err, result, fields) => {
-  return console.log(result);
-});
+pool.query(
+  "INSERT INTO reviews_table (user_name, user_score, user_comment) VALUES ('test2', '25', 'jejej')",
+  (err, result, fields) => {
+    return console.log(result);
+  }
+);
