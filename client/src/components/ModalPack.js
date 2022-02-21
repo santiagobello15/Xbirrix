@@ -5,7 +5,7 @@ import { reviewsArray } from "../dataBase.js";
 import { Reviews } from "../dataBase.js";
 import Axios from "axios";
 
-function ModalPack({ closeModal, setReview }) {
+function ModalPack({ closeModal /* , setReview */ }) {
   const closeModalFunction = () => {
     closeModal(false);
   };
@@ -15,10 +15,9 @@ function ModalPack({ closeModal, setReview }) {
   const [userComment, setUserComment] = useState("Me gustó el sitio");
 
   const addedReview = () => {
-    const addedReviewObject = new Reviews(userName, userScore, userComment);
+    /*     const addedReviewObject = new Reviews(userName, userScore, userComment);
     reviewsArray.push(addedReviewObject);
-    setReview(reviewsArray);
-    console.log(userName);
+    setReview(reviewsArray); */
     closeModal(false);
     Axios.post("http://localhost:3001/api/insert", {
       userName: userName,

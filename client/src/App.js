@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { reviewsArray } from "./dataBase.js";
 import ModalPack from "./components/ModalPack.js";
+import Axios from "axios";
 
 function App() {
   const [current, setCurrent] = useState(0);
   const [show, setShow] = useState(false);
-  const [reviews, setReview] = useState(reviewsArray);
+
+  const [prueba, setPrueba] = useState(reviewsArray);
 
   function conditRenderModal() {
     if (show == true) {
       return (
-        <ModalPack closeModal={setShow} setReview={setReview} />
+        <ModalPack closeModal={setShow} />
       ); /* as I have passed functions from child to parent, I needed to include them here as props */
     }
   }
@@ -22,16 +24,28 @@ function App() {
 
   const prevSlide = () => {
     if (current == 0) {
-      setCurrent(Object.keys(reviews).length - 1);
+      setCurrent(Object.keys(prueba).length - 1);
     } else {
       setCurrent(current - 1);
     }
   };
   const nextSlide = () => {
-    if (current == Object.keys(reviews).length - 1) {
+    if (current == Object.keys(prueba).length - 1) {
       setCurrent(0);
     } else {
       setCurrent(current + 1);
+    }
+  };
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+      setPrueba(response.data);
+    });
+  });
+
+  const hola = () => {
+    for (let i = 0; i < prueba.length; i++) {
+      console.log(prueba);
     }
   };
 
@@ -56,17 +70,17 @@ function App() {
           </a>
         </div>
         <div className="reviews-title-container">
-          <a className="reviews-title-a">{reviews[current].userName}</a>
+          <a className="reviews-title-a">{prueba[current].userName}</a>
         </div>
         <div className="reviews-body-container">
-          <a className="reviews-body-a">{reviews[current].userComment}</a>
+          <a className="reviews-body-a">{prueba[current].userComment}</a>
           <div className="reviews-stars-container">
             <div className="reviews-star-div">
               <img
                 className="star-icon"
                 src={
                   "/src/media/" +
-                  (reviews[current].userScore >= 1 ? "star-active" : "star") +
+                  (prueba[current].userScore >= 1 ? "star-active" : "star") +
                   ".svg"
                 }
               ></img>
@@ -76,7 +90,7 @@ function App() {
                 className="star-icon"
                 src={
                   "/src/media/" +
-                  (reviews[current].userScore >= 2 ? "star-active" : "star") +
+                  (prueba[current].userScore >= 2 ? "star-active" : "star") +
                   ".svg"
                 }
               ></img>
@@ -86,7 +100,7 @@ function App() {
                 className="star-icon"
                 src={
                   "/src/media/" +
-                  (reviews[current].userScore >= 3 ? "star-active" : "star") +
+                  (prueba[current].userScore >= 3 ? "star-active" : "star") +
                   ".svg"
                 }
               ></img>
@@ -96,7 +110,7 @@ function App() {
                 className="star-icon"
                 src={
                   "/src/media/" +
-                  (reviews[current].userScore >= 4 ? "star-active" : "star") +
+                  (prueba[current].userScore >= 4 ? "star-active" : "star") +
                   ".svg"
                 }
               ></img>
@@ -106,7 +120,7 @@ function App() {
                 className="star-icon"
                 src={
                   "/src/media/" +
-                  (reviews[current].userScore >= 5 ? "star-active" : "star") +
+                  (prueba[current].userScore >= 5 ? "star-active" : "star") +
                   ".svg"
                 }
               ></img>
@@ -117,6 +131,17 @@ function App() {
       <button className="reviews-input-btn" onClick={showModalFunction}>
         <a>DEJÁ TU OPINIÓN</a>
       </button>
+      <button onClick={hola}>
+        <a>DEJÁ TU OPINIÓN</a>
+      </button>
+      {/*       {prueba.map((val) => {
+        return (
+          <h1>
+            userName: {val.user_name} | userScore: {val.user_score} |
+            userComment: {val.user_comment}
+          </h1>
+        );
+      })} */}
       {conditRenderModal()}
     </div>
   );
