@@ -1,8 +1,6 @@
 import "../App.css";
 import "./modalStyle.css";
 import React, { useState } from "react";
-import { reviewsArray } from "../dataBase.js";
-import { Reviews } from "../dataBase.js";
 import Axios from "axios";
 
 function ModalPack({ closeModal /* , setReview */ }) {
@@ -23,8 +21,6 @@ function ModalPack({ closeModal /* , setReview */ }) {
       userName: userName,
       userScore: userScore,
       userComment: userComment,
-    }).then(() => {
-      alert("successful insert");
     });
   };
 
