@@ -2,14 +2,18 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const { createPool } = require("mysql");
+const mysql = require("mysql");
 
-const pool = createPool({
-  host: "localhost",
-  user: "root",
-  password: "password",
+var config = {
+  host: "firstmysqlsv.mysql.database.azure.com",
+  user: "firstmysqlsv@firstmysqlsv",
+  password: "Panaldeabeja.1",
   database: "xbirrixdatabase",
-});
+  port: 3306,
+  ssl: true,
+};
+
+const conn = new mysql.createConnection(config);
 
 app.use(cors());
 app.use(express.json());
@@ -17,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/api/get", (req, res) => {
   const sqlSelect = "SELECT * FROM reviews_table";
-  pool.query(sqlSelect, (err, result) => {
+  conn.query(sqlSelect, (err, result) => {
     res.send(result);
   });
 });
@@ -28,7 +32,7 @@ app.post("/api/insert", (req, res) => {
   const userComment = req.body.userComment;
   const sqlInsert =
     "INSERT INTO reviews_table (userName, userScore, userComment) VALUES (?,?,?)";
-  pool.query(sqlInsert, [userName, userScore, userComment], (err, result) => {
+  conn.query(sqlInsert, [userName, userScore, userComment], (err, result) => {
     console.log(result);
   });
 });

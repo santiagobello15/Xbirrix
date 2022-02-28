@@ -132,15 +132,6 @@ function App() {
       <button className="reviews-input-btn" onClick={showModalFunction}>
         <a>DEJÁ TU OPINIÓN</a>
       </button>
-
-      {/*       { a.map((val) => {
-        return (
-          <h1>
-            userName: {val.user_name} | userScore: {val.user_score} |
-            userComment: {val.user_comment}
-          </h1>
-        );
-      })} */}
       {conditRenderModal()}
     </div>
   );
