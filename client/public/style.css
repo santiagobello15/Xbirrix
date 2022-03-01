@@ -178,7 +178,8 @@ section {
 .text-p1 {
   position: absolute;
   top: 11vh;
-  left: 58vw;
+  right: 100px;
+  width: 550px;
 }
 
 .text-p1 a {
@@ -200,7 +201,6 @@ section {
 
 .text-p1 span {
   position: relative;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -243,7 +243,7 @@ section {
 .table-container {
   position: absolute;
   top: 40vh;
-  left: 58vw;
+  right: 100px;
   width: 550px;
   height: 400px;
 }
@@ -596,4 +596,22 @@ section {
 
 .footer-li5 {
   margin-bottom: 0;
+}
+
+@media all and (max-width: 1280px) {
+  .text-p1 {
+    right: 75px;
+  }
+  .table-container {
+    right: 75px;
+  }
+  .div-beer-1,
+  .div-beer-2 {
+    top: 25vh;
+  }
+  .img-beer-1,
+  .img-beer-2 {
+    width: 220px;
+    position: relative;
+  }
 }

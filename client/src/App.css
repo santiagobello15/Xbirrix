@@ -89,7 +89,7 @@
 .reviews-body-container {
   position: absolute;
   background-color: var(--mainColorTransp);
-  width: 860px;
+  width: 80%;
   height: 150px;
   left: 50%;
   transform: translate(-50%, -50%);
