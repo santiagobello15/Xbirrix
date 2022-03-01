@@ -38,5 +38,5 @@ app.post("/api/insert", (req, res) => {
 });
 
 app.listen(3001, () => {
-  console.log("JOJO");
+  console.log("Running");
 });
