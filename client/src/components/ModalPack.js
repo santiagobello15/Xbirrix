@@ -31,8 +31,17 @@ function ModalPack({ closeModal /* , setReview */ }) {
           <h1>TU OPINIÓN</h1>
         </div>
         <div className="modal-container-container first-div">
-          <p className="container-p-picture">Foto tuya</p>
+          <p className="container-p-picture">¡Elegí tu mejor foto!</p>
+          <button className="modal-button examine-button">Examinar</button>
+          <button className="modal-button upload-button">Cargar</button>
+          <div className="user-profile-container">
+            <img
+              className="user-picture"
+              src="/src/media/logo-profile.png"
+            ></img>
+          </div>
         </div>
+
         <div className="modal-container-container second-div">
           <p className="container-p-input container-p-picture-second-div">
             ¿Cómo te llamas?
@@ -48,7 +57,7 @@ function ModalPack({ closeModal /* , setReview */ }) {
         </div>
         <div className="modal-container-container fourth-div">
           <p className="container-p-input container-p-picture-fourth-div">
-            Dejá tu putaje
+            ¡Dejá tu putaje!
           </p>
           <input
             type="text"
@@ -74,7 +83,7 @@ function ModalPack({ closeModal /* , setReview */ }) {
         <button className="close-button" onClick={closeModalFunction}>
           X
         </button>
-        <button onClick={addedReview} className="confirm-button">
+        <button onClick={addedReview} className="modal-button confirm-button">
           Confirmar
         </button>
       </div>
