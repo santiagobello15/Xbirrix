@@ -103,6 +103,8 @@
   border-radius: 5px;
   border-width: 0px;
   box-shadow: 2px 2px black;
+  outline-width: 0;
+  padding-left: 5px;
 }
 
 .second-div-input {
@@ -163,7 +165,6 @@
 
 ::placeholder {
   font-size: 0.7rem;
-  padding-left: 5px;
 }
 
 .user-profile-container {
