@@ -12,10 +12,17 @@ function App() {
       true
     ); /* by adding this loading, i'm waiting for axios to load all data and then render app. otherwise, as it's ASYNC, usestate reviews initial value will load faster than data is fetched */
 
+  const getReviewsFromApi = () => {
+    Axios.get("http://localhost:3001/api/reviews").then((response) => {
+      setReviews(response.data);
+      setLoading(false);
+    });
+  };
+
   function conditRenderModal() {
     if (show == true) {
       return (
-        <ModalPack closeModal={setShow} />
+        <ModalPack closeModal={setShow} getReviewsFromApi={getReviewsFromApi} />
       ); /* as I have passed functions from child to parent, I needed to include them here as props */
     }
   }
@@ -40,11 +47,8 @@ function App() {
   };
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/api/get").then((response) => {
-      setReviews(response.data);
-      setLoading(false);
-    });
-  });
+    getReviewsFromApi();
+  }, []);
 
   if (isLoading) {
     return <div className="App">Loading...</div>;
@@ -71,17 +75,17 @@ function App() {
           </a>
         </div>
         <div className="reviews-title-container">
-          <a className="reviews-title-a">{reviews[current].userName}</a>
+          <a className="reviews-title-a">{reviews[current].username}</a>
         </div>
         <div className="reviews-body-container">
-          <a className="reviews-body-a">{reviews[current].userComment}</a>
+          <a className="reviews-body-a">{reviews[current].usercomment}</a>
           <div className="reviews-stars-container">
             <div className="reviews-star-div">
               <img
                 className="star-icon"
                 src={
                   "/src/media/" +
-                  (reviews[current].userScore >= 1 ? "star-active" : "star") +
+                  (reviews[current].userscore >= 1 ? "star-active" : "star") +
                   ".svg"
                 }
               ></img>
@@ -91,7 +95,7 @@ function App() {
                 className="star-icon"
                 src={
                   "/src/media/" +
-                  (reviews[current].userScore >= 2 ? "star-active" : "star") +
+                  (reviews[current].userscore >= 2 ? "star-active" : "star") +
                   ".svg"
                 }
               ></img>
@@ -101,7 +105,7 @@ function App() {
                 className="star-icon"
                 src={
                   "/src/media/" +
-                  (reviews[current].userScore >= 3 ? "star-active" : "star") +
+                  (reviews[current].userscore >= 3 ? "star-active" : "star") +
                   ".svg"
                 }
               ></img>
@@ -111,7 +115,7 @@ function App() {
                 className="star-icon"
                 src={
                   "/src/media/" +
-                  (reviews[current].userScore >= 4 ? "star-active" : "star") +
+                  (reviews[current].userscore >= 4 ? "star-active" : "star") +
                   ".svg"
                 }
               ></img>
@@ -121,7 +125,7 @@ function App() {
                 className="star-icon"
                 src={
                   "/src/media/" +
-                  (reviews[current].userScore >= 5 ? "star-active" : "star") +
+                  (reviews[current].userscore >= 5 ? "star-active" : "star") +
                   ".svg"
                 }
               ></img>

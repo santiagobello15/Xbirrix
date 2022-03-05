@@ -3,7 +3,7 @@ import "./modalStyle.css";
 import React, { useState } from "react";
 import Axios from "axios";
 
-function ModalPack({ closeModal /* , setReview */ }) {
+function ModalPack({ closeModal, getReviewsFromApi }) {
   const closeModalFunction = () => {
     closeModal(false);
   };
@@ -17,11 +17,12 @@ function ModalPack({ closeModal /* , setReview */ }) {
     reviewsArray.push(addedReviewObject);
     setReview(reviewsArray); */
     closeModal(false);
-    Axios.post("http://localhost:3001/api/insert", {
+    Axios.post("http://localhost:3001/api/reviews", {
       userName: userName,
       userScore: userScore,
       userComment: userComment,
     });
+    getReviewsFromApi();
   };
 
   return (

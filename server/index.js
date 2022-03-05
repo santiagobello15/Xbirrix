@@ -2,39 +2,57 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const mysql = require("mysql");
+// const mysql = require("mysql");
+const { Client } = require("pg");
 
-var config = {
-  host: "firstmysqlsv.mysql.database.azure.com",
-  user: "firstmysqlsv@firstmysqlsv",
-  password: "Panaldeabeja.1",
-  database: "xbirrixdatabase",
-  port: 3306,
-  ssl: true,
+// postgres://xbirrix:OlrXvFQVHa92hkLnE13nI02n4HFh24Yh@ohio-postgres.render.com/xbirrixdb
+const configPg = {
+  user: "xbirrix",
+  host: "ohio-postgres.render.com",
+  database: "xbirrixdb",
+  password: "OlrXvFQVHa92hkLnE13nI02n4HFh24Yh",
+  port: 5432,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 };
 
-const conn = new mysql.createConnection(config);
+const client = new Client(configPg);
+client.connect();
+
+// var config = {
+//   host: "firstmysqlsv.mysql.database.azure.com",
+//   user: "firstmysqlsv@firstmysqlsv",
+//   password: "Panaldeabeja.1",
+//   database: "xbirrixdatabase",
+//   port: 3306,
+//   ssl: true,
+// };
+
+// const conn = new mysql.createConnection(config);
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/api/get", (req, res) => {
-  const sqlSelect = "SELECT * FROM reviews_table";
-  conn.query(sqlSelect, (err, result) => {
-    console.log(result);
-    res.send(result);
+app.get("/api/reviews", (req, res) => {
+  const sqlSelect = "SELECT * FROM reviews";
+  client.query(sqlSelect, (errorDB, resultDB) => {
+    if (resultDB.rows) {
+      return res.send(resultDB.rows);
+    }
+    res.send("ERROR");
   });
 });
 
-app.post("/api/insert", (req, res) => {
+app.post("/api/reviews", (req, res) => {
   const userName = req.body.userName;
   const userScore = req.body.userScore;
   const userComment = req.body.userComment;
   const sqlInsert =
-    "INSERT INTO reviews_table (userName, userScore, userComment) VALUES (?,?,?)";
-  conn.query(sqlInsert, [userName, userScore, userComment], (err, result) => {
-    console.log(result);
+    "INSERT INTO reviews(username, userscore, usercomment) VALUES($1,$2,$3)";
+  client.query(sqlInsert, [userName, userScore, userComment], (err, result) => {
+    res.send({ result });
   });
 });
 
