@@ -11,9 +11,15 @@ function App() {
     useState(
       true
     ); /* by adding this loading, i'm waiting for axios to load all data and then render app. otherwise, as it's ASYNC, usestate reviews initial value will load faster than data is fetched */
+  const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT;
+  console.log({ ENVIRONMENT });
+  const API_URL =
+    ENVIRONMENT === "local"
+      ? "http://localhost:3001/api"
+      : "https://xbirrix-server.onrender.com/api";
 
   const getReviewsFromApi = () => {
-    Axios.get("http://localhost:3001/api/reviews").then((response) => {
+    Axios.get(`${API_URL}/reviews`).then((response) => {
       setReviews(response.data);
       setLoading(false);
     });
