@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/api/get", (req, res) => {
   const sqlSelect = "SELECT * FROM reviews_table";
   conn.query(sqlSelect, (err, result) => {
+    console.log(result);
     res.send(result);
   });
 });

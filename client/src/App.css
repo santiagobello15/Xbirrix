@@ -135,6 +135,7 @@
   position: absolute;
   bottom: 20px;
   border: none;
+  cursor: pointer;
 }
 .reviews-input-btn a {
   left: 50%;
