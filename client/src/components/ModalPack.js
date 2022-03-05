@@ -11,13 +11,18 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
   const [userName, setUserName] = useState("John Doe");
   const [userScore, setUserScore] = useState(5);
   const [userComment, setUserComment] = useState("Me gustó el sitio");
+  const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT;
+  const API_URL =
+    ENVIRONMENT === "local"
+      ? "http://localhost:3001/api"
+      : "https://xbirrix-server.onrender.com/api";
 
   const addedReview = () => {
     /*     const addedReviewObject = new Reviews(userName, userScore, userComment);
     reviewsArray.push(addedReviewObject);
     setReview(reviewsArray); */
     closeModal(false);
-    Axios.post("http://localhost:3001/api/reviews", {
+    Axios.post(`${API_URL}/reviews`, {
       userName: userName,
       userScore: userScore,
       userComment: userComment,

@@ -12,7 +12,6 @@ function App() {
       true
     ); /* by adding this loading, i'm waiting for axios to load all data and then render app. otherwise, as it's ASYNC, usestate reviews initial value will load faster than data is fetched */
   const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT;
-  console.log({ ENVIRONMENT });
   const API_URL =
     ENVIRONMENT === "local"
       ? "http://localhost:3001/api"
