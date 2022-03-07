@@ -11,11 +11,6 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
   const [userName, setUserName] = useState("John Doe");
   const [userScore, setUserScore] = useState(5);
   const [userComment, setUserComment] = useState("Me gustó el sitio");
-  const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT;
-  const API_URL =
-    ENVIRONMENT === "local"
-      ? "http://localhost:3001/api"
-      : "https://xbirrix-server.onrender.com/api";
 
   const addedReview = () => {
     /*     const addedReviewObject = new Reviews(userName, userScore, userComment);
