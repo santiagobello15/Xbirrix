@@ -2,10 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-// const mysql = require("mysql");
 const { Client } = require("pg");
 
-// postgres://xbirrix:OlrXvFQVHa92hkLnE13nI02n4HFh24Yh@ohio-postgres.render.com/xbirrixdb
 const configPg = {
   user: "xbirrix",
   host: "ohio-postgres.render.com",
@@ -20,17 +18,6 @@ const configPg = {
 const client = new Client(configPg);
 client.connect();
 
-// var config = {
-//   host: "firstmysqlsv.mysql.database.azure.com",
-//   user: "firstmysqlsv@firstmysqlsv",
-//   password: "Panaldeabeja.1",
-//   database: "xbirrixdatabase",
-//   port: 3306,
-//   ssl: true,
-// };
-
-// const conn = new mysql.createConnection(config);
-
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,6 +29,7 @@ app.get("/api/reviews", (req, res) => {
       return res.send(resultDB.rows);
     }
     res.send("ERROR");
+    req.end();
   });
 });
 
