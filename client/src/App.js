@@ -13,7 +13,7 @@ function App() {
     ); /* by adding this loading, i'm waiting for axios to load all data and then render app. otherwise, as it's ASYNC, usestate reviews initial value will load faster than data is fetched */
 
   const getReviewsFromApi = () => {
-    Axios.get(`https://xbirrix-client.onrender.com/reviews`).then(
+    Axios.get(`https://xbirrix-server.onrender.com/api/reviews`).then(
       (response) => {
         setReviews(response.data);
         setLoading(false);
