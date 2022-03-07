@@ -29,7 +29,6 @@ app.get("/api/reviews", (req, res) => {
       return res.send(resultDB.rows);
     }
     res.send("ERROR");
-    req.end();
   });
 });
 
