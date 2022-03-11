@@ -18,16 +18,13 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       : "https://xbirrix-server.onrender.com/api";
 
   const addedReview = () => {
-    /*     const addedReviewObject = new Reviews(userName, userScore, userComment);
-    reviewsArray.push(addedReviewObject);
-    setReview(reviewsArray); */
     closeModal(false);
     Axios.post(`${API_URL}/reviews`, {
       userName: userName,
       userScore: userScore,
       userComment: userComment,
     });
-    getReviewsFromApi();
+    setTimeout(getReviewsFromApi(), 1000);
   };
 
   return (
