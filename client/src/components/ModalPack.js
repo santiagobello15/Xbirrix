@@ -24,9 +24,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       userScore: userScore,
       userComment: userComment,
     });
-    setTimeout(function () {
-      getReviewsFromApi();
-    }, 1000);
+    getReviewsFromApi();
   };
 
   return (
