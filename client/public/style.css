@@ -607,11 +607,101 @@ section {
   }
   .div-beer-1,
   .div-beer-2 {
-    top: 25vh;
+    top: 37vh;
   }
   .img-beer-1,
   .img-beer-2 {
     width: 220px;
     position: relative;
+  }
+}
+
+@media all and (max-width: 1220px) {
+  .text-p1 {
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  .b1 {
+    left: 50%;
+    transform: translate(-46%, -50%);
+    top: 80px;
+    width: 100%;
+    position: absolute;
+  }
+  .b2 {
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 120px;
+  }
+}
+@media all and (max-width: 1000px) {
+  #nosotros {
+    height: 1600px;
+  }
+  #reservas {
+    top: 2400px;
+  }
+  #contacto {
+    top: 3200px;
+  }
+  #footer-rect {
+    top: 4000px;
+  }
+
+  .table-container {
+    top: 48%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: auto;
+  }
+  .table-item {
+    width: 250px;
+  }
+  #table-item-1 {
+    left: 0px;
+    top: 0px;
+  }
+  #table-item-2 {
+    left: 0px;
+    top: 200px;
+  }
+  #table-item-3 {
+    left: 0px;
+    top: 400px;
+  }
+  #table-item-4 {
+    left: 0px;
+    top: 600px;
+  }
+  .div-beer-1 {
+    left: 50%;
+    top: 550px;
+    transform: translate(-94%, -50%);
+  }
+  .div-beer-2 {
+    left: 50%;
+    top: 550px;
+    transform: translate(10%, -50%);
+  }
+  .img-beer-1,
+  .img-beer-2 {
+    width: 180px;
+  }
+  .text-p1 {
+    top: 125px;
+    position: absolute;
+  }
+  .b1 {
+    top: 100px;
+    position: absolute;
+  }
+  .b2 {
+    top: 150px;
+    position: absolute;
   }
 }
