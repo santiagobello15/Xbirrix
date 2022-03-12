@@ -36,10 +36,13 @@ app.post("/api/reviews", (req, res) => {
   const userName = req.body.userName;
   const userScore = req.body.userScore;
   const userComment = req.body.userComment;
-  const sqlInsert =
-    "INSERT INTO reviews(username, userscore, usercomment) VALUES($1,$2,$3)";
+  const sqlInsert = "INSERT INTO reviews(username, userscore, usercomment) VALUES($1,$2,$3) RETURNING *";
   client.query(sqlInsert, [userName, userScore, userComment], (err, result) => {
-    res.send({ result });
+    if (err) {
+      res.send(err.stack);
+    } else {
+      res.send(result.rows[0]);
+    }
   });
 });
 

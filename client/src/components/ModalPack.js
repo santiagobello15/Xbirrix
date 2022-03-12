@@ -17,9 +17,9 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       ? "http://localhost:3001/api"
       : "https://xbirrix-server.onrender.com/api";
 
-  const addedReview = () => {
+  const addedReview = async () => {
     closeModal(false);
-    Axios.post(`${API_URL}/reviews`, {
+    await Axios.post(`${API_URL}/reviews`, {
       userName: userName,
       userScore: userScore,
       userComment: userComment,
