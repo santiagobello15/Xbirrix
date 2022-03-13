@@ -22,7 +22,7 @@ nav {
   height: 60px;
   width: 100vw;
   display: flex;
-  position: fixed;
+  position: absolute;
   z-index: 999999;
   background-color: var(--mainColorTransp);
 }
@@ -30,7 +30,7 @@ nav {
   height: 60px;
   width: 100vw;
   display: flex;
-  position: fixed;
+  position: absolute;
   z-index: 999999;
   background-color: rgba(74, 45, 18, 0.479);
   animation: fadeDownNavBar 1s;
@@ -189,7 +189,8 @@ section {
   color: white;
   text-shadow: 2px 2px black;
 }
-.text-p1 b {
+.b1,
+.b2 {
   font-size: 2rem;
   color: white;
   text-shadow: 2px 1px black;
@@ -428,7 +429,7 @@ section {
   height: 50px;
   border-radius: 15px;
   border: 0px;
-  position: relative;
+  position: absolute;
   top: 200px;
   text-align: center;
   line-height: 50px;
@@ -518,6 +519,10 @@ section {
   background-color: var(--mainColor);
   top: 39px;
   z-index: 9;
+}
+
+#solid-underline-2 {
+  opacity: 0%;
 }
 
 #footer-rect {
@@ -638,6 +643,10 @@ section {
   }
 }
 @media all and (max-width: 1000px) {
+  .screen-title {
+    font-size: 7.5rem;
+  }
+
   #nosotros {
     height: 1600px;
   }
@@ -650,7 +659,9 @@ section {
   #footer-rect {
     top: 4000px;
   }
-
+  .subt-container {
+    width: auto;
+  }
   .table-container {
     top: 48%;
     left: 50%;
@@ -680,28 +691,47 @@ section {
   }
   .div-beer-1 {
     left: 50%;
-    top: 550px;
+    top: 520px;
     transform: translate(-94%, -50%);
   }
   .div-beer-2 {
     left: 50%;
-    top: 550px;
+    top: 520px;
     transform: translate(10%, -50%);
   }
   .img-beer-1,
   .img-beer-2 {
-    width: 180px;
+    width: 200px;
+  }
+  .text-p1 a {
+    font-size: 2.5rem;
   }
   .text-p1 {
     top: 125px;
     position: absolute;
+    right: auto;
+    width: auto;
   }
   .b1 {
     top: 100px;
-    position: absolute;
+    font-size: 1.5rem;
   }
   .b2 {
-    top: 150px;
-    position: absolute;
+    top: 130px;
+    font-size: 1.5rem;
   }
-}
+  #solid-underline-2 {
+    opacity: 100%;
+    top: 104px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+  }
+  .reviews-title {
+    width: 450px;
+  }
+  .reviews-title h1 {
+    text-align: center;
+  }
+} ;
