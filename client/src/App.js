@@ -56,7 +56,7 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <div className="App">Loading...</div>;
+    return <div className="loading-modal">Cargando...</div>;
   }
 
   return (

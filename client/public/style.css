@@ -75,7 +75,6 @@ nav {
   width: 50%;
   align-items: center;
   margin-left: 6vw;
-  font-size: 3vh;
   right: 100px;
   position: absolute;
 }
@@ -84,7 +83,6 @@ nav {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
-  border-radius: 6px;
   padding: 5px;
 }
 
@@ -110,17 +108,13 @@ section {
   font-weight: bold;
   position: absolute;
   z-index: 999;
-
   font-family: "Permanent Marker", cursive;
   background-color: var(--mainColorTransp);
   padding-left: 30px;
   padding-right: 30px;
-  transform: translate(
-    -50%,
-    -50%
-  ); /* to center horizontally and to to position vertically to 30%*/
-  top: 400px; /* to position vertically to 30% */
-  left: 50%; /* to center horizontally */
+  transform: translate(-50%, -50%);
+  top: 400px;
+  left: 50%;
 }
 
 #nosotros {
@@ -489,6 +483,7 @@ section {
   font-family: "Permanent Marker", cursive;
   font-size: 2rem;
   color: var(--mainColor);
+  text-shadow: 1px 1px white;
 }
 
 #contacto {
@@ -643,6 +638,13 @@ section {
   }
 }
 @media all and (max-width: 1000px) {
+  .titles-holder {
+    right: 115px;
+  }
+  .tit-holder-li-a {
+    font-size: 1.2rem;
+    padding: 13px;
+  }
   .screen-title {
     font-size: 7.5rem;
   }
@@ -734,4 +736,23 @@ section {
   .reviews-title h1 {
     text-align: center;
   }
-} ;
+  .subt-reservas,
+  .company-name-a {
+    font-size: 1.4rem;
+  }
+  .titbirra {
+    left: 5%;
+    width: 90%;
+    top: 140px;
+  }
+  #tit-birra-variable {
+    left: 90px;
+  }
+  .titbirra a {
+    font-size: 2rem;
+    text-align: center;
+  }
+  #tit-birra-fixed1 {
+    text-align: center;
+  }
+}

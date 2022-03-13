@@ -145,3 +145,15 @@
   font-size: 0.8rem;
   font-style: italic;
 }
+
+.loading-modal {
+  font-family: "Permanent Marker", cursive;
+  color: var(--mainColor);
+  font-size: 4.5rem;
+  font-weight: bold;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 400px;
+  left: 50%;
+  text-shadow: 3px 3px black;
+}
