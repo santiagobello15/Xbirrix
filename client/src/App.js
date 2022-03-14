@@ -17,9 +17,10 @@ function App() {
       ? "http://localhost:3001/api"
       : "https://xbirrix-server.onrender.com/api";
 
-  const getReviewsFromApi = () => {
-    Axios.get(`${API_URL}/reviews`).then((response) => {
+  const getReviewsFromApi = async () => {
+    await Axios.get(`${API_URL}/reviews`).then((response) => {
       setReviews(response.data);
+      setCurrent(Object.keys(reviews).length - 1);
       setLoading(false);
     });
   };
