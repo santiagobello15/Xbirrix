@@ -755,4 +755,21 @@ section {
   #tit-birra-fixed1 {
     text-align: center;
   }
+  .footer-razon-social,
+  .footer-logo {
+    width: 120px;
+    padding-left: 20px;
+  }
+  .footer-ul-items a {
+    font-size: 0.9rem;
+  }
+  .footer-ul-items li {
+    margin-bottom: 15px;
+  }
+  .footer-ul-title {
+    height: 44px;
+  }
+  #footer-rect {
+    height: 400px;
+  }
 }
