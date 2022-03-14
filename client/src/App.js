@@ -21,8 +21,8 @@ function App() {
     await Axios.get(`${API_URL}/reviews`).then((response) => {
       setReviews(response.data);
       setLoading(false);
-      setCurrent(Object.keys(reviews).length - 1);
     });
+    setCurrent(Object.keys(reviews).length);
   };
 
   function conditRenderModal() {
