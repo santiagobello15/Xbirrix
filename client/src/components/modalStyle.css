@@ -186,6 +186,9 @@
 }
 
 @media all and (max-width: 1000px) {
+  .reviews-title {
+    top: 70px;
+  }
   .reviews-stars-container {
     width: 105px;
     bottom: -3px;
