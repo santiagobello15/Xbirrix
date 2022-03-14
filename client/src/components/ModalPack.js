@@ -3,7 +3,7 @@ import "./modalStyle.css";
 import React, { useState } from "react";
 import Axios from "axios";
 
-function ModalPack({ closeModal, getReviewsFromApi, setCurrent }) {
+function ModalPack({ closeModal, getReviewsFromApi }) {
   const closeModalFunction = () => {
     closeModal(false);
   };
