@@ -210,9 +210,12 @@
     height: 40px;
   }
   .reviews-body-container {
-    top: 305px;
+    top: 300px;
   }
   .reviews-title-a {
     font-size: 1.2rem;
+  }
+  .reviews-body-container {
+    height: 135px;
   }
 }
