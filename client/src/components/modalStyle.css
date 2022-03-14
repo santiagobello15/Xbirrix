@@ -184,3 +184,10 @@
   border-color: #895e3b;
   border-width: 2px;
 }
+
+@media all and (max-width: 1000px) {
+  .reviews-stars-container {
+    width: 105px;
+    bottom: -3px;
+  }
+}
