@@ -731,10 +731,11 @@ section {
     width: 300px;
   }
   .reviews-title {
-    width: 330px;
+    width: 333px;
   }
   .reviews-title h1 {
     text-align: center;
+    font-size: 2.3rem;
   }
   .subt-reservas,
   .company-name-a {
@@ -774,13 +775,22 @@ section {
   }
   .reviews-solid-underline {
     width: 100%;
-    height: 16px;
     position: absolute;
     background-color: var(--mainColor);
+    height: 10px;
     top: 33px;
+  }
+  #solid-underline-2 {
+    top: 83px;
+    width: 229px;
   }
 }
 @media all and (max-width: 500px) {
+  .tit-holder-li-a {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
   .screen-title {
     font-size: 4.5rem;
   }
