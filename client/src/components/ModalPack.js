@@ -33,13 +33,12 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     )
       .then((response) => {
         setShowImage(response.data.secure_url);
-        console.log(response.data.secure_url);
+
         return response.data.secure_url;
       })
       .then((response) => {
-        console.log(response.data.secure_url);
-        /*         setUserPicture(response);
-        console.log(response); */
+        setUserPicture(response);
+        console.log(response);
       });
   };
 
