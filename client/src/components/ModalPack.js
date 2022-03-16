@@ -37,7 +37,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
         return response.data.secure_url;
       })
       .then((response) => {
-        console.log(response);
+        setUserPicture(response);
       });
   };
 
