@@ -2,6 +2,7 @@ import "../App.css";
 import "./modalStyle.css";
 import React, { useState } from "react";
 import Axios from "axios";
+import { Image } from "cloudinary-react";
 
 function ModalPack({ closeModal, getReviewsFromApi }) {
   const closeModalFunction = () => {
@@ -11,6 +12,11 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
   const [userName, setUserName] = useState("John Doe");
   const [userScore, setUserScore] = useState(5);
   const [userComment, setUserComment] = useState("Me gustó el sitio");
+  const [userPicture, setUserPicture] = useState("");
+  const [imageSelected, setImageSelected] = useState("");
+  const [showImage, setShowImage] = useState(
+    "https://res.cloudinary.com/dpkfb428j/image/upload/v1647397451/logo-profile_ibsust.jpg"
+  );
   const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT;
   const API_URL =
     ENVIRONMENT === "local"
@@ -23,8 +29,23 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       userName: userName,
       userScore: userScore,
       userComment: userComment,
+      userPicture: userPicture,
     });
     getReviewsFromApi();
+  };
+
+  const uploadFile = () => {
+    const formData = new FormData();
+    formData.append("file", imageSelected);
+    formData.append("upload_preset", "zsffzfbc");
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/dpkfb428j/image/upload",
+      formData
+    ).then((response) => {
+      setUserPicture(response.data.secure_url);
+      setShowImage(response.data.secure_url);
+      console.log(userPicture);
+    });
   };
 
   return (
@@ -35,13 +56,28 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
         </div>
         <div className="modal-container-container first-div">
           <p className="container-p-picture">¡Elegí tu mejor foto!</p>
-          <button className="modal-button examine-button">Examinar</button>
-          <button className="modal-button upload-button">Cargar</button>
+          <label for="upload-photo" className="examine-button modal-button">
+            Buscar
+          </label>
+          <input
+            type="file"
+            name="photo"
+            onChange={(evt) => {
+              setImageSelected(evt.target.files[0]);
+            }}
+            className="modal-button "
+            id="upload-photo"
+          />
+
+          <button className="modal-button upload-button" onClick={uploadFile}>
+            Cargar
+          </button>
           <div className="user-profile-container">
-            <img
+            <Image
+              cloudName="dpkfb428j"
+              publicId={showImage}
               className="user-picture"
-              src="/src/media/logo-profile.png"
-            ></img>
+            />
           </div>
         </div>
 

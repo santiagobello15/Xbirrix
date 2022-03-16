@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import ModalPack from "./components/ModalPack.js";
 import Axios from "axios";
+import { Image } from "cloudinary-react";
 
 function App() {
   const [current, setCurrent] = useState(0);
@@ -65,10 +66,11 @@ function App() {
       <div className="reviews-container1">
         <div className="reviews-picture picture-backgr"></div>
         <div className="reviews-picture">
-          <img
+          <Image
             className="reviews-image"
-            src={"/src/media/picture-" + current + ".jpg"}
-          ></img>
+            cloudName="dpkfb428j"
+            publicId={reviews[current].userpicture}
+          />
         </div>
         <div className="arrow arrow-back-container">
           <a className="arrow-a" onClick={prevSlide}>

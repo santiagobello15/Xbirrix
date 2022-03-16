@@ -36,14 +36,20 @@ app.post("/api/reviews", (req, res) => {
   const userName = req.body.userName;
   const userScore = req.body.userScore;
   const userComment = req.body.userComment;
-  const sqlInsert = "INSERT INTO reviews(username, userscore, usercomment) VALUES($1,$2,$3) RETURNING *";
-  client.query(sqlInsert, [userName, userScore, userComment], (err, result) => {
-    if (err) {
-      res.send(err.stack);
-    } else {
-      res.send(result.rows[0]);
+  const userPicture = req.body.userPicture;
+  const sqlInsert =
+    "INSERT INTO reviews(username, userscore, usercomment, userpicture) VALUES($1,$2,$3,$4) RETURNING *";
+  client.query(
+    sqlInsert,
+    [userName, userScore, userComment, userPicture],
+    (err, result) => {
+      if (err) {
+        res.send(err.stack);
+      } else {
+        res.send(result.rows[0]);
+      }
     }
-  });
+  );
 });
 
 app.listen(3001, () => {
