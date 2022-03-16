@@ -30,16 +30,17 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     await Axios.post(
       "https://api.cloudinary.com/v1_1/dpkfb428j/image/upload",
       formData
-    ).then((response) => {
-      setShowImage(response.data.secure_url);
-      console.log(response.data.secure_url);
-      return response.data.secure_url;
-    });
-         .then((response) => {
+    )
+      .then((response) => {
+        setShowImage(response.data.secure_url);
         console.log(response.data.secure_url);
-/*         setUserPicture(response);
+        return response.data.secure_url;
+      })
+      .then((response) => {
+        console.log(response.data.secure_url);
+        /*         setUserPicture(response);
         console.log(response); */
-      }); 
+      });
   };
 
   const addedReview = async () => {
