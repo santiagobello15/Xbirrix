@@ -38,7 +38,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       })
       .then((response) => {
         setUserPicture(response);
-        console.log(response);
+        console.log(userPicture);
       });
   };
 
