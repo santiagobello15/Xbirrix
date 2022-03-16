@@ -32,7 +32,6 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       formData
     )
       .then((response) => {
-        setUserPicture(response.data.secure_url);
         setShowImage(response.data.secure_url);
         return response.data.secure_url;
       })
