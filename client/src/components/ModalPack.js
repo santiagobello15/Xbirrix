@@ -35,10 +35,11 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       console.log(response.data.secure_url);
       return response.data.secure_url;
     });
-    /*       .then((response) => {
-        setUserPicture(response);
-        console.log(response);
-      }); */
+         .then((response) => {
+        console.log(response.data.secure_url);
+/*         setUserPicture(response);
+        console.log(response); */
+      }); 
   };
 
   const addedReview = async () => {
