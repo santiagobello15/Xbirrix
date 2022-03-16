@@ -23,17 +23,6 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       ? "http://localhost:3001/api"
       : "https://xbirrix-server.onrender.com/api";
 
-  const addedReview = async () => {
-    closeModal(false);
-    await Axios.post(`${API_URL}/reviews`, {
-      userName: userName,
-      userScore: userScore,
-      userComment: userComment,
-      userPicture: userPicture,
-    });
-    getReviewsFromApi();
-  };
-
   const uploadFile = async () => {
     const formData = new FormData();
     formData.append("file", imageSelected);
@@ -46,6 +35,17 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       setShowImage(response.data.secure_url);
       console.log(userPicture);
     });
+  };
+
+  const addedReview = async () => {
+    closeModal(false);
+    await Axios.post(`${API_URL}/reviews`, {
+      userName: userName,
+      userScore: userScore,
+      userComment: userComment,
+      userPicture: userPicture,
+    });
+    getReviewsFromApi();
   };
 
   return (
