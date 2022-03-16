@@ -12,7 +12,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
   const [userName, setUserName] = useState("John Doe");
   const [userScore, setUserScore] = useState(5);
   const [userComment, setUserComment] = useState("Me gustó el sitio");
-  const [userPicture, setUserPicture] = useState("");
+  const [userPicture, setUserPicture] = useState("2");
   const [imageSelected, setImageSelected] = useState("");
   const [showImage, setShowImage] = useState(
     "https://res.cloudinary.com/dpkfb428j/image/upload/v1647397451/logo-profile_ibsust.jpg"
@@ -30,11 +30,15 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     await Axios.post(
       "https://api.cloudinary.com/v1_1/dpkfb428j/image/upload",
       formData
-    ).then((response) => {
-      setUserPicture(response.data.secure_url);
-      setShowImage(response.data.secure_url);
-      console.log(userPicture);
-    });
+    )
+      .then((response) => {
+        setUserPicture(response.data.secure_url);
+        setShowImage(response.data.secure_url);
+        return response.data.secure_url;
+      })
+      .then((response) => {
+        console.log(response);
+      });
   };
 
   const addedReview = async () => {
