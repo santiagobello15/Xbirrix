@@ -34,11 +34,11 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     getReviewsFromApi();
   };
 
-  const uploadFile = () => {
+  const uploadFile = async () => {
     const formData = new FormData();
     formData.append("file", imageSelected);
     formData.append("upload_preset", "zsffzfbc");
-    Axios.post(
+    await Axios.post(
       "https://api.cloudinary.com/v1_1/dpkfb428j/image/upload",
       formData
     ).then((response) => {
