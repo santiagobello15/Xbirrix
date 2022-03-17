@@ -32,14 +32,14 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       formData
     ).then((response) => {
       setShowImage(response.data.secure_url);
-      setUserPicture(response.data.secure_url);
-      console.log(showImage);
+      /*       setUserPicture(response.data.secure_url);
+      console.log(showImage); */
     });
   };
 
-  const jeje = () => {
+  /*   const jeje = () => {
     console.log(userPicture);
-  };
+  }; */
 
   const addedReview = async () => {
     closeModal(false);
@@ -47,7 +47,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       userName: userName,
       userScore: userScore,
       userComment: userComment,
-      userPicture: userPicture,
+      userPicture: showImage,
     });
     getReviewsFromApi();
   };
