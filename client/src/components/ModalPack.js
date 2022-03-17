@@ -37,9 +37,9 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     });
   };
 
-  /*   const jeje = () => {
+  const jeje = () => {
     console.log(userPicture);
-  }; */
+  };
 
   const addedReview = async () => {
     closeModal(false);
