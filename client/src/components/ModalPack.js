@@ -36,10 +36,6 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     });
   };
 
-  useEffect(() => {
-    uploadFile();
-  }, []);
-
   const jeje = () => {
     console.log(userPicture);
   };
