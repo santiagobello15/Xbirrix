@@ -1,6 +1,6 @@
 import "../App.css";
 import "./modalStyle.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { Image } from "cloudinary-react";
 
@@ -30,16 +30,18 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     await Axios.post(
       "https://api.cloudinary.com/v1_1/dpkfb428j/image/upload",
       formData
-    )
-      .then((response) => {
-        setShowImage(response.data.secure_url);
+    ).then((response) => {
+      setShowImage(response.data.secure_url);
+      setUserPicture(response.data.secure_url);
+    });
+  };
 
-        return response.data.secure_url;
-      })
-      .then((response) => {
-        setUserPicture(response);
-        console.log(userPicture);
-      });
+  useEffect(() => {
+    uploadFile();
+  }, []);
+
+  const jeje = () => {
+    console.log(userPicture);
   };
 
   const addedReview = async () => {
@@ -125,6 +127,9 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
         </div>
 
         <button className="close-button" onClick={closeModalFunction}>
+          X
+        </button>
+        <button className="bott" onClick={jeje}>
           X
         </button>
         <button onClick={addedReview} className="modal-button confirm-button">
