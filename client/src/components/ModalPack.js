@@ -32,8 +32,8 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       formData
     ).then((response) => {
       setShowImage(response.data.secure_url);
-      /*       setUserPicture(response.data.secure_url);
-      console.log(showImage); */
+      setUserPicture(response.data.secure_url);
+      console.log(showImage);
     });
   };
 
@@ -47,7 +47,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       userName: userName,
       userScore: userScore,
       userComment: userComment,
-      userPicture: showImage,
+      userPicture: userPicture,
     });
     getReviewsFromApi();
   };

@@ -53,9 +53,9 @@ function App() {
     }
   };
 
-  useEffect(() => {
+  /*   useEffect(() => {
     getReviewsFromApi();
-  }, []);
+  }, []); */
 
   if (isLoading) {
     return <div className="loading-modal">Cargando...</div>;
