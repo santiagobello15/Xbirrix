@@ -32,13 +32,9 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       formData
     ).then((response) => {
       setShowImage(response.data.secure_url);
+      setUserPicture(response.data.secure_url);
     });
-    setUserPicture("response.data.secure_url");
   };
-
-  useEffect(() => {
-    uploadFile();
-  }, []);
 
   const addedReview = async () => {
     closeModal(false);
