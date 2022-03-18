@@ -33,12 +33,20 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     ).then((response) => {
       setShowImage(response.data.secure_url);
       setUserPicture(response.data.secure_url);
-      console.log(showImage);
     });
   };
 
   const jeje = () => {
-    console.log(userPicture);
+    adddedReview();
+  };
+
+  const adddedReview = async () => {
+    await Axios.post(`${API_URL}/reviews`, {
+      userName: userName,
+      userScore: userScore,
+      userComment: userComment,
+      userPicture: userPicture,
+    });
   };
 
   const addedReview = async () => {
