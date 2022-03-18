@@ -36,7 +36,7 @@ app.post("/api/reviews", (req, res) => {
   const userName = req.body.userName;
   const userScore = req.body.userScore;
   const userComment = req.body.userComment;
-  const userPicture = "req.body.userPicture";
+  const userPicture = req.body.userPicture;
   const sqlInsert =
     "INSERT INTO reviews(username, userscore, usercomment, userpicture) VALUES($1,$2,$3,$4) RETURNING *";
   client.query(
