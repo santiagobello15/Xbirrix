@@ -36,9 +36,9 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     setUserPicture("response.data.secure_url");
   };
 
-  const jeje = () => {
-    console.log("je");
-  };
+  useEffect(() => {
+    uploadFile();
+  }, []);
 
   const addedReview = async () => {
     closeModal(false);
@@ -125,9 +125,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
         <button className="close-button" onClick={closeModalFunction}>
           X
         </button>
-        <button className="bott" onClick={jeje}>
-          X
-        </button>
+
         <button onClick={addedReview} className="modal-button confirm-button">
           Confirmar
         </button>
