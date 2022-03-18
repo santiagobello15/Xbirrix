@@ -58,7 +58,20 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <div className="loading-modal">Cargando...</div>;
+    return (
+      <div className="loading-modal">
+        Cargando
+        <span id="dot1" className="loading-modal-dots">
+          .
+        </span>
+        <span id="dot2" className="loading-modal-dots">
+          .
+        </span>
+        <span id="dot3" className="loading-modal-dots">
+          .
+        </span>
+      </div>
+    );
   }
 
   return (
