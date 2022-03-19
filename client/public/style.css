@@ -130,7 +130,7 @@ section {
   position: absolute;
   top: 14vh;
   left: 50px;
-  width: 200px;
+  width: 180px;
 }
 .div-beer-2 {
   left: 28vw;
@@ -804,10 +804,10 @@ section {
     font-size: 1.2rem;
   }
   .div-beer-1 {
-    transform: translate(-95%, -50%);
+    transform: translate(-87%, -50%);
   }
   .div-beer-2 {
-    transform: translate(3%, -50%);
+    transform: translate(1%, -50%);
   }
   .img-beer-1,
   .img-beer-2 {
