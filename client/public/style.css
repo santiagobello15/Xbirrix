@@ -804,10 +804,10 @@ section {
     font-size: 1.2rem;
   }
   .div-beer-1 {
-    transform: translate(-76%, -50%);
+    transform: translate(-95%, -50%);
   }
   .div-beer-2 {
-    transform: translate(0%, -50%);
+    transform: translate(3%, -50%);
   }
   .img-beer-1,
   .img-beer-2 {
@@ -850,5 +850,17 @@ section {
     height: auto;
     width: 60px;
     left: auto;
+  }
+  #tit-birra-fixed1 {
+    position: absolute;
+    left: 40px;
+  }
+  #tit-birra-fixed2 {
+    position: absolute;
+    top: 40px;
+  }
+  #tit-birra-variable {
+    position: absolute;
+    left: 130px;
   }
 }
