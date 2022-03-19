@@ -173,35 +173,47 @@
 #dot2 {
   animation: dot-animation2 3s step-end;
   animation-iteration-count: infinite;
+  opacity: 0;
 }
 
 @keyframes dot-animation2 {
   0% {
+    opacity: 0;
+  }
+  25% {
     opacity: 1;
   }
   50% {
-    opacity: 0;
-  }
-  100% {
     opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
   }
 }
 
 #dot3 {
-  animation: dot-animation3 1.5s step-end;
+  animation: dot-animation3 3s step-end;
   animation-iteration-count: infinite;
-  animation-delay: 150ms;
   opacity: 0;
 }
 
 @keyframes dot-animation3 {
   0% {
-    opacity: 1;
-  }
-  50% {
     opacity: 0;
   }
-  100% {
+  25% {
+    opacity: 0;
+  }
+  50% {
     opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
   }
 }
