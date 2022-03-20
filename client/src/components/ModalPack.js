@@ -1,6 +1,6 @@
 import "../App.css";
 import "./modalStyle.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import { Image } from "cloudinary-react";
 
@@ -12,7 +12,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
   const [userName, setUserName] = useState("John Doe");
   const [userScore, setUserScore] = useState(5);
   const [userComment, setUserComment] = useState("Me gustó el sitio");
-  const [userPicture, setUserPicture] = useState("2");
+  const [userPicture, setUserPicture] = useState();
   const [imageSelected, setImageSelected] = useState("");
   const [showImage, setShowImage] = useState(
     "https://res.cloudinary.com/dpkfb428j/image/upload/v1647397451/logo-profile_ibsust.jpg"
@@ -34,6 +34,14 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       setShowImage(response.data.secure_url);
       setUserPicture(response.data.secure_url);
     });
+  };
+
+  const jeje = () => {
+    if (typeof userPicture !== "undefined") {
+      console.log("jeje");
+    } else {
+      console.log("joejoe");
+    }
   };
 
   const addedReview = async () => {
@@ -69,6 +77,9 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
           />
 
           <button className="modal-button upload-button" onClick={uploadFile}>
+            Cargar
+          </button>
+          <button className="modal-button upload-buttonn" onClick={jeje}>
             Cargar
           </button>
           <div className="user-profile-container">
