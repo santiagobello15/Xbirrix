@@ -9,6 +9,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     closeModal(false);
   };
 
+  const [publicId, setPublicId] = useState("");
   const [userName, setUserName] = useState("John Doe");
   const [userScore, setUserScore] = useState(5);
   const [userComment, setUserComment] = useState("Me gustó el sitio");
@@ -33,14 +34,15 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     ).then((response) => {
       setShowImage(response.data.secure_url);
       setUserPicture(response.data.secure_url);
+      setPublicId(response.data.public_id);
     });
   };
 
-  const jeje = () => {
+  const checkIfUploadandExit = () => {
     if (typeof userPicture !== "undefined") {
-      console.log("jeje");
+      addToDeleteDb();
     } else {
-      console.log("joejoe");
+      console.log("Error");
     }
   };
 
@@ -53,6 +55,16 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       userPicture: userPicture,
     });
     getReviewsFromApi();
+  };
+  const addToDeleteDb = () => {
+    Axios.post(`${API_URL}/delete`, {
+      urlToDelete: publicId,
+    });
+  };
+
+  const checkBeforeClose = () => {
+    checkIfUploadandExit();
+    closeModal();
   };
 
   return (
@@ -79,8 +91,11 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
           <button className="modal-button upload-button" onClick={uploadFile}>
             Cargar
           </button>
-          <button className="modal-button upload-buttonn" onClick={jeje}>
-            Cargar
+          <button
+            className="modal-button upload-buttonn"
+            onClick={addToDeleteDb}
+          >
+            XXXX
           </button>
           <div className="user-profile-container">
             <Image
@@ -129,7 +144,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
           ></input>
         </div>
 
-        <button className="close-button" onClick={closeModalFunction}>
+        <button className="close-button" onClick={checkBeforeClose}>
           X
         </button>
 

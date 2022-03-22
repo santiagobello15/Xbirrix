@@ -4,6 +4,34 @@ const cors = require("cors");
 const app = express();
 const { Client } = require("pg");
 
+const cloudinary = require("cloudinary").v2;
+
+// Change cloud name, API Key, and API Secret below
+
+cloudinary.config({
+  cloud_name: "dpkfb428j",
+  api_key: "673189361226453",
+  api_secret: "T4H-o9GvR0hdxS7akEyIORFeLzs",
+});
+
+// Change 'sample' to any public ID of your choice
+const hello = () => {
+  cloudinary.uploader.destroy("vhuimxckabbm15kwaenl", function (result) {
+    console.log(result);
+  });
+};
+
+const hehe = () => {
+  const sqlDelete = "DELETE FROM tobedeleted";
+  client.query(sqlDelete, (err, result) => {
+    if (err) {
+      res.send(err.stack);
+    } else {
+      console.log("Deleted");
+    }
+  });
+};
+
 const configPg = {
   user: "xbirrix",
   host: "ohio-postgres.render.com",
@@ -31,6 +59,22 @@ app.get("/api/reviews", (req, res) => {
     res.send("ERROR");
   });
 });
+app.get("/api/delete", (req, res) => {
+  const sqlSelect = "SELECT * FROM tobedeleted";
+  client.query(sqlSelect, (errorDB, resultDB) => {
+    if (resultDB.rows) {
+      if (typeof resultDB.rows[0] !== "undefined") {
+        console.log(resultDB.rows[0].urltodelete);
+      } else {
+        for (let i = 0; i < resultDB.rows.length; i++) {
+          console.log(i);
+        }
+      }
+      return res.send(resultDB.rows);
+    }
+    res.send("ERROR");
+  });
+});
 
 app.post("/api/reviews", (req, res) => {
   const userName = req.body.userName;
@@ -51,7 +95,28 @@ app.post("/api/reviews", (req, res) => {
     }
   );
 });
+const postUrlsToDelete = () => {
+  app.post("/api/delete", (req, res) => {
+    const urlToDelete = req.body.urlToDelete;
+    const sqlInsert =
+      "INSERT INTO tobedeleted(urltodelete) VALUES($1) RETURNING *";
+    client.query(sqlInsert, [urlToDelete], (err, result) => {
+      if (err) {
+        res.send(err.stack);
+      } else {
+        res.send(result.rows[0]);
+      }
+    });
+  });
+};
 
 app.listen(3001, () => {
   console.log("Running");
 });
+
+const prub = () => {
+  postUrlsToDelete();
+  hehe();
+};
+
+prub();

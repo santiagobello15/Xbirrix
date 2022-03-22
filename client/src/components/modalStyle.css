@@ -5,7 +5,9 @@
   position: absolute;
   z-index: 999999999;
 }
-
+.jejex {
+  position: absolute;
+}
 .modal-container {
   background-color: rgb(221, 221, 221);
   height: 450px;
