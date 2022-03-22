@@ -91,12 +91,6 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
           <button className="modal-button upload-button" onClick={uploadFile}>
             Cargar
           </button>
-          <button
-            className="modal-button upload-buttonn"
-            onClick={addToDeleteDb}
-          >
-            XXXX
-          </button>
           <div className="user-profile-container">
             <Image
               cloudName="dpkfb428j"

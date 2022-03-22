@@ -63,14 +63,28 @@ app.get("/api/delete", (req, res) => {
   const sqlSelect = "SELECT * FROM tobedeleted";
   client.query(sqlSelect, (errorDB, resultDB) => {
     if (resultDB.rows) {
-      if (typeof resultDB.rows[0] !== "undefined") {
-        console.log(resultDB.rows[0].urltodelete);
-      } else {
+      if (resultDB.rows[0]) {
         for (let i = 0; i < resultDB.rows.length; i++) {
-          console.log(i);
+          console.log(resultDB.rows[i].urltodelete);
+          cloudinary.uploader.destroy(resultDB.rows[i].urltodelete);
+          const sqlDelete = "DELETE FROM tobedeleted WHERE urltodelete = $1";
+          client.query(
+            sqlDelete,
+            [resultDB.rows[i].urltodelete],
+            (err, result) => {
+              if (err) {
+                res.send(err.stack);
+              } else {
+                console.log("Deleted");
+              }
+            }
+          );
         }
       }
+
       return res.send(resultDB.rows);
+    } else {
+      console.log("no hay nada");
     }
     res.send("ERROR");
   });
@@ -114,9 +128,4 @@ app.listen(3001, () => {
   console.log("Running");
 });
 
-const prub = () => {
-  postUrlsToDelete();
-  hehe();
-};
-
-prub();
+postUrlsToDelete();
