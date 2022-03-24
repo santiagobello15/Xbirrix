@@ -144,7 +144,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
           <input
             type="text"
             className="container-input third-div-input"
-            placeholder="¡Dejanos tu opinión! ¿Qué te gustó? ¿Qué debemos mejorar?"
+            placeholder="¡Dejanos tu opinión!"
             onChange={(evt) => {
               setUserComment(evt.target.value);
             }}

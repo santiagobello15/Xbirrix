@@ -230,3 +230,58 @@
     opacity: 0;
   }
 }
+@media all and (max-width: 300px) {
+  .reviews-title h1 {
+    font-size: 1.8rem;
+  }
+  .reviews-solid-underline {
+    height: 8px;
+    top: 27px;
+  }
+  #solid-underline-2 {
+    top: 65px;
+    width: 177px;
+  }
+  .reviews-title {
+    width: 265px;
+  }
+  .text-p1 a {
+    font-size: 1.6rem;
+  }
+  .b2 {
+    font-size: 1rem;
+  }
+  .b1 {
+    font-size: 1rem;
+  }
+  .titbirra a {
+    font-size: 1.6rem;
+  }
+
+  #tit-birra-variable {
+    left: 109px;
+  }
+  #tit-birra-fixed2 {
+    top: 30px;
+  }
+  .loading-modal {
+    font-size: 3rem;
+  }
+  .screen-title {
+    font-size: 4rem;
+  }
+  .div-beer-1,
+  .div-beer-2 {
+    width: 150px;
+  }
+  .img-beer-1,
+  .img-beer-2 {
+    width: 125px;
+  }
+  .titles-holder {
+    right: 85px;
+  }
+  .tit-holder-li-a {
+    font-size: 0.7em;
+  }
+}

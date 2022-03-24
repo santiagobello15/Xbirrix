@@ -5,9 +5,7 @@
   position: absolute;
   z-index: 999999999;
 }
-.jejex {
-  position: absolute;
-}
+
 .modal-container {
   background-color: rgb(221, 221, 221);
   height: 450px;
@@ -178,7 +176,7 @@
 }
 
 ::placeholder {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 
 .user-profile-container {
@@ -314,5 +312,34 @@
   40% {
     -webkit-transform: scale(1);
     transform: scale(1);
+  }
+}
+
+@media all and (max-width: 300px) {
+  .modal-container {
+    width: 250px;
+  }
+  .modal-title h1 {
+    font-size: 1.5rem;
+    top: 17px;
+  }
+  .user-profile-container {
+    width: 80px;
+    height: 80px;
+    right: 8%;
+    top: 13%;
+  }
+  .camera-icon-img {
+    width: 60%;
+    height: 60%;
+    transform: translate(-50%, 30%);
+  }
+  .container-p-picture {
+    text-shadow: 1px 1px black;
+    font-size: 1rem;
+  }
+  .container-p-input {
+    font-size: 0.7rem;
+    top: 8px;
   }
 }
