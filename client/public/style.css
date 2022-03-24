@@ -404,59 +404,6 @@ section {
   left: 150px;
 }
 
-#book-button {
-  color: white;
-  font-size: 0.8rem;
-  text-align: center;
-  text-decoration: none;
-  font-style: italic;
-  position: relative;
-  padding-left: 38px;
-  padding-right: 38px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-
-.button-cointainer {
-  background-color: var(--mainColor);
-  width: 150px;
-  height: 50px;
-  border-radius: 15px;
-  border: 0px;
-  position: absolute;
-  top: 200px;
-  text-align: center;
-  line-height: 50px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.book-button-alert {
-  width: 100%;
-  height: 30px;
-  font-size: 0.5rem;
-  text-align: center;
-  background-color: rgba(241, 197, 50, 0.774);
-  top: 60px;
-  position: absolute;
-  border-radius: 15px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  animation: button-alert-fade 3s linear;
-  width: 60%;
-}
-
-@keyframes button-alert-fade {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 .p-button {
   display: flex;
   justify-content: center;
@@ -468,20 +415,20 @@ section {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
-  top: 100px;
+  top: 50%;
   width: 1000px;
   text-align: center;
 }
 
 .subt-reservas {
   color: white;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
 }
 
 .company-name-a {
   font-family: "Permanent Marker", cursive;
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--mainColor);
   text-shadow: 1px 1px white;
 }
