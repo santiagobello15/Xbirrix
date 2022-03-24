@@ -12,7 +12,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
   const [userComment, setUserComment] = useState("Me gustó el sitio");
   const [userPicture, setUserPicture] = useState();
   const [showImage, setShowImage] = useState(
-    "https://res.cloudinary.com/dpkfb428j/image/upload/v1648084106/vboavlebkx3xhghqtgt0.jpg"
+    "https://res.cloudinary.com/dpkfb428j/image/upload/v1648159794/user_jvjoqh.png"
   );
   const [imageLoading, setImageLoading] = useState(false);
   const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT;
