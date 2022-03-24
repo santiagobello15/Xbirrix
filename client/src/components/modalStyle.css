@@ -255,3 +255,13 @@
     height: 135px;
   }
 }
+
+.upload-image-icon {
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  background-color: #dd8431;
+  top: 50%;
+  transform: translate(-11%, 65%);
+  border-radius: 50%;
+}

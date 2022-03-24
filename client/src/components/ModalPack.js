@@ -97,6 +97,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
               publicId={showImage}
               className="user-picture"
             />
+            <div className="upload-image-icon"></div>
           </div>
         </div>
 
