@@ -78,10 +78,15 @@
 }
 
 .container-p-picture {
-  top: 16%;
+  top: 37%;
   position: absolute;
   left: 5%;
   color: black;
+  font-weight: 800;
+  font-size: 1.5rem;
+  font-family: "Permanent Marker", cursive;
+  color: #de8432;
+  text-shadow: 1.5px 1.5px black;
 }
 
 .container-p-input {
@@ -163,29 +168,6 @@
   opacity: 0;
   position: absolute;
   z-index: -1;
-}
-
-.upload-button {
-  border-width: 2px;
-  border-color: #895e3b;
-  color: #895e3b;
-  border-style: double;
-  top: 44%;
-  width: 81px;
-  left: 27%;
-  font-size: 1rem;
-  font-weight: 600;
-}
-.upload-buttonn {
-  border-width: 2px;
-  border-color: #895e3b;
-  color: #895e3b;
-  border-style: double;
-  top: 64%;
-  width: 81px;
-  left: 57%;
-  font-size: 1rem;
-  font-weight: 600;
 }
 
 .confirm-button {

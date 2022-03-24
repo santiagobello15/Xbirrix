@@ -6,29 +6,26 @@ import { Image } from "cloudinary-react";
 import cameraimage from "./media/camera-icon.png";
 
 function ModalPack({ closeModal, getReviewsFromApi }) {
-  const closeModalFunction = () => {
-    closeModal(false);
-  };
-
   const [publicId, setPublicId] = useState("");
   const [userName, setUserName] = useState("John Doe");
   const [userScore, setUserScore] = useState(5);
   const [userComment, setUserComment] = useState("Me gustó el sitio");
   const [userPicture, setUserPicture] = useState();
-  const [imageSelected, setImageSelected] = useState("");
   const [showImage, setShowImage] = useState(
     "https://res.cloudinary.com/dpkfb428j/image/upload/v1648084106/vboavlebkx3xhghqtgt0.jpg"
   );
+  const [imageLoading, setImageLoading] = useState(false);
   const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT;
   const API_URL =
     ENVIRONMENT === "local"
       ? "http://localhost:3001/api"
       : "https://xbirrix-server.onrender.com/api";
 
-  const uploadFile = async () => {
+  const uploadFile = async (evt) => {
     const formData = new FormData();
-    formData.append("file", imageSelected);
+    formData.append("file", evt.target.files[0]);
     formData.append("upload_preset", "zsffzfbc");
+    setImageLoading(true);
     await Axios.post(
       "https://api.cloudinary.com/v1_1/dpkfb428j/image/upload",
       formData
@@ -37,6 +34,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       setUserPicture(response.data.secure_url);
       setPublicId(response.data.public_id);
     });
+    setImageLoading(false);
   };
 
   const checkIfUploadandExit = () => {
@@ -75,27 +73,23 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
           <h1>TU OPINIÓN</h1>
         </div>
         <div className="modal-container-container first-div">
-          <p className="container-p-picture">¡Elegí tu mejor foto!</p>
+          <p className="container-p-picture">¡Elegí una foto!</p>
 
           <input
             type="file"
             name="photo"
-            onChange={(evt) => {
-              setImageSelected(evt.target.files[0]);
-            }}
+            onChange={uploadFile}
             className="modal-button "
             id="upload-photo"
           />
 
-          <button className="modal-button upload-button" onClick={uploadFile}>
-            Cargar
-          </button>
           <div className="user-profile-container">
             <Image
               cloudName="dpkfb428j"
               publicId={showImage}
               className="user-picture"
             />
+            {imageLoading ? <h3>Cargando...</h3> : ""}
             <label for="upload-photo">
               <div className="upload-image-icon">
                 <img src={cameraimage} className="camera-icon-img"></img>
