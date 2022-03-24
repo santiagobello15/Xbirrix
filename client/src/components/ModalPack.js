@@ -26,6 +26,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
     formData.append("file", evt.target.files[0]);
     formData.append("upload_preset", "zsffzfbc");
     setImageLoading(true);
+    setShowImage(false);
     await Axios.post(
       "https://api.cloudinary.com/v1_1/dpkfb428j/image/upload",
       formData
@@ -84,12 +85,26 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
           />
 
           <div className="user-profile-container">
-            <Image
-              cloudName="dpkfb428j"
-              publicId={showImage}
-              className="user-picture"
-            />
-            {imageLoading ? <h3>Cargando...</h3> : ""}
+            <div className="user-picture-container-inner-div">
+              {showImage ? (
+                <Image
+                  cloudName="dpkfb428j"
+                  publicId={showImage}
+                  className="user-picture"
+                />
+              ) : (
+                ""
+              )}
+            </div>
+            {imageLoading ? (
+              <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+              </div>
+            ) : (
+              ""
+            )}
             <label for="upload-photo">
               <div className="upload-image-icon">
                 <img src={cameraimage} className="camera-icon-img"></img>
