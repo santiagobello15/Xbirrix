@@ -3,6 +3,7 @@ import "./modalStyle.css";
 import React, { useState } from "react";
 import Axios from "axios";
 import { Image } from "cloudinary-react";
+import cameraimage from "./media/camera-icon.png";
 
 function ModalPack({ closeModal, getReviewsFromApi }) {
   const closeModalFunction = () => {
@@ -16,7 +17,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
   const [userPicture, setUserPicture] = useState();
   const [imageSelected, setImageSelected] = useState("");
   const [showImage, setShowImage] = useState(
-    "https://res.cloudinary.com/dpkfb428j/image/upload/v1647397451/logo-profile_ibsust.jpg"
+    "https://res.cloudinary.com/dpkfb428j/image/upload/v1648084106/vboavlebkx3xhghqtgt0.jpg"
   );
   const ENVIRONMENT = process.env.REACT_APP_ENVIRONMENT;
   const API_URL =
@@ -75,9 +76,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
         </div>
         <div className="modal-container-container first-div">
           <p className="container-p-picture">¡Elegí tu mejor foto!</p>
-          <label for="upload-photo" className="examine-button modal-button">
-            Buscar
-          </label>
+
           <input
             type="file"
             name="photo"
@@ -97,7 +96,11 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
               publicId={showImage}
               className="user-picture"
             />
-            <div className="upload-image-icon"></div>
+            <label for="upload-photo">
+              <div className="upload-image-icon">
+                <img src={cameraimage} className="camera-icon-img"></img>
+              </div>
+            </label>
           </div>
         </div>
 

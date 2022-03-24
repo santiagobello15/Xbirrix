@@ -264,4 +264,12 @@
   top: 50%;
   transform: translate(-11%, 65%);
   border-radius: 50%;
+  cursor: pointer;
+}
+.camera-icon-img {
+  width: 70%;
+  height: 70%;
+  left: 50%;
+  transform: translate(-50%, 18%);
+  position: absolute;
 }
