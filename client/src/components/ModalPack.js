@@ -53,6 +53,7 @@ function ModalPack({ closeModal, getReviewsFromApi }) {
       userScore: userScore,
       userComment: userComment,
       userPicture: userPicture,
+      publicId: publicId,
     });
     getReviewsFromApi();
   };

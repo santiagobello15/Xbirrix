@@ -5,7 +5,6 @@ for (let i = 0; i < letras.length; i++) {
   letras[i].addEventListener("mouseover", function () {
     letras[i].classList.add("activex");
     setTimeout(function () {
-      //////// villereada timeout?
       letras[i].classList.remove("activex");
     }, 3000);
   });

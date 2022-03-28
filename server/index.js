@@ -3,35 +3,13 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const { Client } = require("pg");
-
 const cloudinary = require("cloudinary").v2;
-
-// Change cloud name, API Key, and API Secret below
 
 cloudinary.config({
   cloud_name: "dpkfb428j",
   api_key: "673189361226453",
   api_secret: "T4H-o9GvR0hdxS7akEyIORFeLzs",
 });
-
-// Change 'sample' to any public ID of your choice
-const hello = () => {
-  cloudinary.uploader.destroy("vhuimxckabbm15kwaenl", function (result) {
-    console.log(result);
-  });
-};
-
-const hehe = () => {
-  const sqlDelete = "DELETE FROM tobedeleted";
-  client.query(sqlDelete, (err, result) => {
-    if (err) {
-      res.send(err.stack);
-    } else {
-      console.log("Deleted");
-    }
-  });
-};
-
 const configPg = {
   user: "xbirrix",
   host: "ohio-postgres.render.com",
@@ -42,10 +20,8 @@ const configPg = {
     rejectUnauthorized: false,
   },
 };
-
 const client = new Client(configPg);
 client.connect();
-
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -65,20 +41,30 @@ app.get("/api/delete", (req, res) => {
     if (resultDB.rows) {
       if (resultDB.rows[0]) {
         for (let i = 0; i < resultDB.rows.length; i++) {
-          console.log(resultDB.rows[i].urltodelete);
-          cloudinary.uploader.destroy(resultDB.rows[i].urltodelete);
-          const sqlDelete = "DELETE FROM tobedeleted WHERE urltodelete = $1";
-          client.query(
-            sqlDelete,
-            [resultDB.rows[i].urltodelete],
-            (err, result) => {
-              if (err) {
-                res.send(err.stack);
-              } else {
-                console.log("Deleted");
-              }
+          const sqlSelect =
+            "SELECT * FROM reviews WHERE publicid LIKE '" +
+            resultDB.rows[i].urltodelete +
+            "'";
+          client.query(sqlSelect, (errorDB, resultCheck) => {
+            console.log(resultCheck.rowCount);
+            if (resultCheck.rowCount < 1) {
+              console.log(resultDB.rows[i].urltodelete);
+              cloudinary.uploader.destroy(resultDB.rows[i].urltodelete);
+              const sqlDelete =
+                "DELETE FROM tobedeleted WHERE urltodelete = $1";
+              client.query(
+                sqlDelete,
+                [resultDB.rows[i].urltodelete],
+                (err, result) => {
+                  if (err) {
+                    res.send(err.stack);
+                  } else {
+                    console.log("Deleted");
+                  }
+                }
+              );
             }
-          );
+          });
         }
       }
 
@@ -95,11 +81,12 @@ app.post("/api/reviews", (req, res) => {
   const userScore = req.body.userScore;
   const userComment = req.body.userComment;
   const userPicture = req.body.userPicture;
+  const publicId = req.body.publicId;
   const sqlInsert =
-    "INSERT INTO reviews(username, userscore, usercomment, userpicture) VALUES($1,$2,$3,$4) RETURNING *";
+    "INSERT INTO reviews(username, userscore, usercomment, userpicture, publicid) VALUES($1,$2,$3,$4,$5) RETURNING *";
   client.query(
     sqlInsert,
-    [userName, userScore, userComment, userPicture],
+    [userName, userScore, userComment, userPicture, publicId],
     (err, result) => {
       if (err) {
         res.send(err.stack);
