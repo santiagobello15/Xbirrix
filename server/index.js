@@ -63,6 +63,20 @@ app.get("/api/delete", (req, res) => {
                   }
                 }
               );
+            } else {
+              const sqlDelete =
+                "DELETE FROM tobedeleted WHERE urltodelete = $1";
+              client.query(
+                sqlDelete,
+                [resultDB.rows[i].urltodelete],
+                (err, result) => {
+                  if (err) {
+                    res.send(err.stack);
+                  } else {
+                    console.log("Deleted");
+                  }
+                }
+              );
             }
           });
         }
@@ -96,23 +110,19 @@ app.post("/api/reviews", (req, res) => {
     }
   );
 });
-const postUrlsToDelete = () => {
-  app.post("/api/delete", (req, res) => {
-    const urlToDelete = req.body.urlToDelete;
-    const sqlInsert =
-      "INSERT INTO tobedeleted(urltodelete) VALUES($1) RETURNING *";
-    client.query(sqlInsert, [urlToDelete], (err, result) => {
-      if (err) {
-        res.send(err.stack);
-      } else {
-        res.send(result.rows[0]);
-      }
-    });
-  });
-};
 
+app.post("/api/delete", (req, res) => {
+  const urlToDelete = req.body.urlToDelete;
+  const sqlInsert =
+    "INSERT INTO tobedeleted(urltodelete) VALUES($1) RETURNING *";
+  client.query(sqlInsert, [urlToDelete], (err, result) => {
+    if (err) {
+      res.send(err.stack);
+    } else {
+      res.send(result.rows[0]);
+    }
+  });
+});
 app.listen(3001, () => {
   console.log("Running");
 });
-
-postUrlsToDelete();
