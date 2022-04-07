@@ -6,15 +6,15 @@ const { Client } = require("pg");
 const cloudinary = require("cloudinary").v2;
 
 cloudinary.config({
-  cloud_name: "dpkfb428j",
-  api_key: "673189361226453",
-  api_secret: "T4H-o9GvR0hdxS7akEyIORFeLzs",
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 const configPg = {
-  user: "xbirrix",
-  host: "ohio-postgres.render.com",
-  database: "xbirrixdb",
-  password: "OlrXvFQVHa92hkLnE13nI02n4HFh24Yh",
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DB,
+  password: process.env.DB_PASSWORD,
   port: 5432,
   ssl: {
     rejectUnauthorized: false,
