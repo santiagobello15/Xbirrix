@@ -95,7 +95,7 @@ section {
 .video-screen {
   object-fit: cover;
   width: 100%;
-  height: 800px;
+  height: 100%;
 }
 
 #home {
@@ -113,7 +113,7 @@ section {
   padding-left: 30px;
   padding-right: 30px;
   transform: translate(-50%, -50%);
-  top: 400px;
+  top: 50%;
   left: 50%;
 }
 
@@ -173,6 +173,7 @@ section {
   position: absolute;
   top: 11vh;
   right: 100px;
+  display: grid;
   width: 550px;
 }
 
@@ -237,7 +238,7 @@ section {
 
 .table-container {
   position: absolute;
-  top: 40vh;
+  top: 40%;
   right: 100px;
   width: 550px;
   height: 400px;
@@ -549,6 +550,12 @@ section {
   .text-p1 {
     right: 75px;
   }
+  #home {
+    height: 600px;
+  }
+  #nosotros {
+    top: 600px;
+  }
   .table-container {
     right: 75px;
   }
@@ -563,28 +570,12 @@ section {
   }
 }
 
-@media all and (max-width: 1220px) {
-  .text-p1 {
-    top: 150px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-  }
-  .b1 {
-    left: 50%;
-    transform: translate(-46%, -50%);
-    top: 80px;
-    width: 100%;
-    position: absolute;
-  }
-  .b2 {
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 120px;
+@media all and (max-width: 1200px) {
+  .table-item {
+    width: 250px;
   }
 }
-@media all and (max-width: 1000px) {
+@media all and (max-width: 1150px) {
   .titles-holder {
     right: 115px;
   }
@@ -595,29 +586,27 @@ section {
   .screen-title {
     font-size: 7.5rem;
   }
-
   #nosotros {
     height: 1600px;
   }
   #reservas {
-    top: 2400px;
+    top: 2200px;
   }
   #contacto {
-    top: 3200px;
+    top: 3000px;
   }
   #footer-rect {
-    top: 4000px;
+    top: 3800px;
   }
   .subt-container {
     width: auto;
   }
   .table-container {
-    top: 48%;
+    top: 60%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
     width: 250px;
-    height: auto;
   }
   .table-item {
     width: 250px;
@@ -653,13 +642,15 @@ section {
     width: 200px;
   }
   .text-p1 a {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   .text-p1 {
     top: 125px;
     position: absolute;
-    right: auto;
-    width: auto;
+    text-align: center;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, 0px);
   }
   .b1 {
     top: 100px;
@@ -731,6 +722,13 @@ section {
     top: 83px;
     width: 229px;
   }
+  .subt-container a {
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 750px){
+.text-p1 a {
+    font-size: 2.2rem;
 }
 @media all and (max-width: 500px) {
   .tit-holder-li-a {
